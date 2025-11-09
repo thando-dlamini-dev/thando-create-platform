@@ -9,7 +9,7 @@ interface User {
     username: string;
 }
 
-interface GoogleUser {
+export interface GoogleUser {
     id: string;
     username: string;
     email: string;
