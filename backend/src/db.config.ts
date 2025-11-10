@@ -52,6 +52,7 @@ export const initializeDatabase = async () => {
                 status ENUM('draft', 'submitted', 'reviewed', 'accepted', 'in_progress', 'completed') DEFAULT 'draft',
                 customer_notes TEXT,
                 admin_notes TEXT,
+                color_palette JSON NOT NULL,
                 discount_code VARCHAR(100),
                 final_price DECIMAL(10,2),
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

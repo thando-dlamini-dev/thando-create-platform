@@ -23,6 +23,7 @@ interface SelectedOptions {
     status:string;
     customerNotes: string;
     adminNotes: string;
+    colorPalette: string[];
     discountCode: string;
     finalPrice: number;
 }
@@ -72,6 +73,7 @@ export const AddService = async (userId: string, selectedOptions: SelectedOption
         status,
         customer_notes,
         admin_notes,
+        color_palette,
         discount_code,
         final_price,
     ) VALUES (?, ?, ?, ?, ?, ?)`
@@ -84,6 +86,7 @@ export const AddService = async (userId: string, selectedOptions: SelectedOption
         selectedOptions.status,
         selectedOptions.customerNotes,
         selectedOptions.adminNotes,
+        selectedOptions.colorPalette,
         selectedOptions.discountCode,
         selectedOptions.finalPrice,
     ]
