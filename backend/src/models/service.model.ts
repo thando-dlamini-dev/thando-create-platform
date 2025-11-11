@@ -16,16 +16,65 @@ export interface ServiceData {
 }
 
 interface SelectedOptions {
+    // AI Strategy Session Data
+    businessType: string;
+    industry: string;
+    targetAudience: string;
+    primaryGoals: string[];
+    brandTone: string;
+    budgetRange: string;
+    timeline: string;
+    specialRequirements?: string;
+
+    // AI Recommendations
+    aiRecommendedPages: string[];
+    aiRecommendedFeatures: string[];
+    aiRecommendedSections: { [page: string]: string[] };
+    aiContentSuggestions: {
+        [section: string]: {
+            heading: string;
+            subheading?: string;
+            cta?: string;
+            body?: string;
+            features?: string[];
+        }
+    };
+
+    // User Selections
     service: Service;
-    serviceType: string;
+    serviceType: 'fullstack' | 'frontend_only' | 'ecommerce';
+    selectedPages: string[];
     selectedFeatures: string[];
+    selectedSections: { [page: string]: string[] };
+    customContent: {
+        [section: string]: {
+            heading: string;
+            subheading?: string;
+            cta?: string;
+            body?: string;
+            features?: string[];
+        }
+    };
+
+    // Design & Styling
+    colorPalette: string[];
+    fontPreferences: {
+        primary: string;
+        secondary: string;
+        accent: string;
+    };
+
+    // Pricing & Status
     estimatedPrice: number;
-    status:string;
+    status: 'draft' | 'submitted' | 'reviewed' | 'accepted' | 'in_progress' | 'completed';
     customerNotes: string;
     adminNotes: string;
-    colorPalette: string[];
     discountCode: string;
     finalPrice: number;
+
+    // Metadata
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 // interface cartServices {
@@ -66,29 +115,82 @@ export const FetchService = async (searchValue: number | string) => {
 export const AddService = async (userId: string, selectedOptions: SelectedOptions): Promise<RowDataPacket[]> => {
 
     const sql = `INSERT INTO user_services (
-        user_id,
-        service_type,
-        selected_features,
-        estimated_price,
-        status,
-        customer_notes,
-        admin_notes,
-        color_palette,
-        discount_code,
-        final_price,
-    ) VALUES (?, ?, ?, ?, ?, ?)`
+    user_id,
+    
+    -- AI Strategy Session Data
+    business_type,
+    industry,
+    target_audience,
+    primary_goals,
+    brand_tone,
+    budget_range,
+    timeline,
+    special_requirements,
+    
+    -- AI Recommendations
+    ai_recommended_pages,
+    ai_recommended_features,
+    ai_recommended_sections,
+    ai_content_suggestions,
+    
+    -- User Selections
+    service_type,
+    selected_pages,
+    selected_features,
+    selected_sections,
+    custom_content,
+    
+    -- Design & Styling
+    color_palette,
+    font_preferences,
+    
+    -- Pricing & Status
+    estimated_price,
+    status,
+    customer_notes,
+    admin_notes,
+    discount_code,
+    final_price
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 
     const params = [
+        // User ID
         userId,
+
+        // AI Strategy Session Data (direct from SelectedOptions)
+        selectedOptions.businessType,
+        selectedOptions.industry,
+        selectedOptions.targetAudience,
+        JSON.stringify(selectedOptions.primaryGoals),
+        selectedOptions.brandTone,
+        selectedOptions.budgetRange,
+        selectedOptions.timeline,
+        selectedOptions.specialRequirements || '',
+
+        // AI Recommendations (direct from SelectedOptions)
+        JSON.stringify(selectedOptions.aiRecommendedPages),
+        JSON.stringify(selectedOptions.aiRecommendedFeatures),
+        JSON.stringify(selectedOptions.aiRecommendedSections),
+        JSON.stringify(selectedOptions.aiContentSuggestions),
+
+        // User Selections (direct from SelectedOptions)
         selectedOptions.serviceType,
+        JSON.stringify(selectedOptions.selectedPages),
         JSON.stringify(selectedOptions.selectedFeatures),
+        JSON.stringify(selectedOptions.selectedSections),
+        JSON.stringify(selectedOptions.customContent),
+
+        // Design & Styling (direct from SelectedOptions)
+        JSON.stringify(selectedOptions.colorPalette),
+        JSON.stringify(selectedOptions.fontPreferences),
+
+        // Pricing & Status (direct from SelectedOptions)
         selectedOptions.estimatedPrice,
         selectedOptions.status,
         selectedOptions.customerNotes,
         selectedOptions.adminNotes,
-        selectedOptions.colorPalette,
         selectedOptions.discountCode,
-        selectedOptions.finalPrice,
+        selectedOptions.finalPrice
     ]
 
     return await query(sql, params) as RowDataPacket[]

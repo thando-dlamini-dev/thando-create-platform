@@ -5,33 +5,33 @@ import useAnnouncementStore from "../stores/AnouncementStore.ts";
 
 const Announcement = () => {
 
-    const announcements = [
-        {
-            id: 1,
-            text: "🚀 Trusted by 500+ founders • 4.9/5 average rating",
-            type: "social-proof"
-        },
-        {
-            id: 2,
-            text: "⏰ Limited spots available this month • Book your free consultation now",
-            type: "urgency"
-        },
-        {
-            id: 3,
-            text: "🎯 New: AI-Powered Website Strategy • Get personalized recommendations",
-            type: "feature"
-        },
-        {
-            id: 4,
-            text: "📚 Free Website Planning Guide • Download our 20-page checklist",
-            type: "lead-magnet"
-        },
-        {
-            id: 5,
-            text: "Get 40% off On Your First Website",
-            type: "discount"
-        }
-    ];
+    // const announcements = [
+    //     {
+    //         id: 1,
+    //         text: "🚀 Trusted by 500+ founders • 4.9/5 average rating",
+    //         type: "social-proof"
+    //     },
+    //     {
+    //         id: 2,
+    //         text: "⏰ Limited spots available this month • Book your free consultation now",
+    //         type: "urgency"
+    //     },
+    //     {
+    //         id: 3,
+    //         text: "🎯 New: AI-Powered Website Strategy • Get personalized recommendations",
+    //         type: "feature"
+    //     },
+    //     {
+    //         id: 4,
+    //         text: "📚 Free Website Planning Guide • Download our 20-page checklist",
+    //         type: "lead-magnet"
+    //     },
+    //     {
+    //         id: 5,
+    //         text: "Get 40% off On Your First Website",
+    //         type: "discount"
+    //     }
+    // ];
 
     const { hasExited , toggleHasExited }  = useAnnouncementStore();
 

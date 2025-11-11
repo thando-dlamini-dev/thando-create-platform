@@ -1,5 +1,6 @@
 import HeroSection from "../components/HeroSection.tsx";
 import PrinciplesSection from "../components/PrinciplesSection.tsx";
+import HowItWorks from "../components/HowItWorks.tsx";
 
 const LandingPage = () => {
     return (
@@ -8,6 +9,7 @@ const LandingPage = () => {
                 <div className='w-screen min-h-screen '>
                     <HeroSection/>
                     <PrinciplesSection/>
+                    <HowItWorks/>
                 </div>
             </section>
         </>
