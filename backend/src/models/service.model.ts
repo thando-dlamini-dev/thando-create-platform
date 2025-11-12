@@ -15,6 +15,17 @@ export interface ServiceData {
     price: number
 }
 
+export interface AISessionData {
+    businessType: string;
+    industry: string;
+    targetAudience: string;
+    primaryGoals: string[];
+    brandTone: string;
+    budgetRange: string;
+    timeline: string;
+    specialRequirements?: string;
+}
+
 interface SelectedOptions {
     // AI Strategy Session Data
     businessType: string;
