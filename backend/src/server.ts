@@ -6,6 +6,7 @@ import passport from 'passport'
 import authRoute from './routes/auth.route';
 import serviceRoute from'./routes/service.route'
 import paymentRoute from "./routes/payment.route";
+import aiRoute from './routes/ai.route'
 import { initializePassportStrategy } from './passport.config'
 import { initializeDatabase } from "./db.config";
 
@@ -49,8 +50,9 @@ app.use((req, res, next) => {
 });
 
 app.use('api/auth', authRoute);
-app.use('/api/service', serviceRoute)
-app.use('/api/payment', paymentRoute)
+app.use('/api/service', serviceRoute);
+app.use('/api/payment', paymentRoute);
+app.use('/api/huggingface', aiRoute);
 
 app.listen(PORT, () => {
     console.log(`Server started on port: ${PORT}`);

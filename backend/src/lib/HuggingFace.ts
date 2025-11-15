@@ -5,8 +5,7 @@ const client = new OpenAI({
     apiKey: process.env.HF_API_KEY,
 });
 
-const ChatCompletion = async (data: string) => {
-    const content = `${data}`
+const ChatCompletion = async (content: string) => {
 
     const chatCompletion = await client.chat.completions.create({
         model: process.env.HF_MODEl!,

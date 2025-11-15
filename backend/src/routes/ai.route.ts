@@ -1,6 +1,9 @@
 import { Router } from 'express';
-import { GenerateRecommendation } from '../controllers/ai.controller'
+import {GenerateRecommendation, TestAIResponse} from '../controllers/ai.controller'
 
 const router = Router();
 
 router.get('/', GenerateRecommendation);
+router.get('/test', TestAIResponse)
+
+export default router;
