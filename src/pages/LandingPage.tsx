@@ -9,7 +9,6 @@ const LandingPage = () => {
                 <div className='w-screen min-h-screen '>
                     <HeroSection/>
                     <PrinciplesSection/>
-                    <HowItWorks/>
                 </div>
             </section>
         </>
