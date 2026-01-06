@@ -57,7 +57,7 @@ const NavBar = () => {
 
     return (
         <>
-            <motion.div initial={{opacity:0, y: -20}} animate={{opacity:1, y: 0}} transition={{duration:0.5, ease:"easeInOut"}} className={`fixed ${hasExited ? "top-0" : "top-8"} z-50 left-0 w-screen h-15 flex justify-evenly px-40 items-center gap-10 bg-white/0 shadow-md backdrop-blur-md `}>
+            <motion.div initial={{opacity:0, y: -20}} animate={{opacity:1, y: 0}} transition={{duration:0.5, ease:"easeInOut"}} className={`fixed ${hasExited ? "top-0" : "top-8"} z-50 left-0 w-screen h-15 flex justify-evenly px-40 items-center gap-10 bg-background shadow-md backdrop-blur-md`}>
                 {/*Logo*/}
                 <div className='w-1/7 h-2/3 flex justify-center gap-2 items-center'>
                     <Link to='/' className='text-2xl font-mono font-bold w-10 h-10 flex items-center justify-center gap-1 text-accent'><img className='w-3/4' src='src/assets/logo2.png' alt=""/> <span>reate</span></Link>

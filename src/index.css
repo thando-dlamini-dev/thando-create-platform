@@ -3,15 +3,20 @@
 
 @theme {
   --color-accent: #4f8b05;
-  --color-background: #c6c7c8;
+  --color-background: #dcdcdc;
   --color-text-col: #373737;
+  --font-geist-mono: "Geist-Mono-Bold";
+  --font-geist-mono: "Geist-Mono-Regular";
 }
 
-@font-face {
-  font-family: 'Geist Mono';
-  src: url('src/assets/fonts/GeistMono-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+@font-face{
+  font-family: "Geist-Mono-Bold";
+  src: url('src/assets/fonts/GeistMono-Bold.ttf');
+}
+
+@font-face{
+  font-family: "Geist-Mono-Bold";
+  src: url('src/assets/fonts/GeistMono-Bold.ttf');
 }
 
 :root {
