@@ -1,6 +1,7 @@
 import HeroSection from "../components/HeroSection.tsx";
 import PrinciplesSection from "../components/PrinciplesSection.tsx";
 import Steps from "../components/Steps.tsx";
+import Pricing from "../components/Pricing.tsx";
 
 const LandingPage = () => {
     return (
@@ -10,6 +11,7 @@ const LandingPage = () => {
                     <HeroSection/>
                     <PrinciplesSection/>
                     <Steps/>
+                    <Pricing/>
                 </div>
             </section>
         </>
