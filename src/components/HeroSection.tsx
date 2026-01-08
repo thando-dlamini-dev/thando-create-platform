@@ -5,14 +5,14 @@ const HeroSection = () => {
     return(
         <>
             <section className='scroll-smooth relative w-screen min-h-screen flex justify-between items-center bg-background'>
-                <div className='z-10 font-geist-mono w-1/2 h-screen flex flex-col items-end pl-20 justify-start pt-30'>
+                <div className='z-10 font-geist-mono-bold w-1/2 h-screen flex flex-col items-end pl-20 justify-start pt-30'>
                     <div className='border-neutral-300 border-0 absolute left-20 w-1/2 min-h-50 py-5 top-85 rounded-3xl p-2 pl-20'>
                     <div className='w-full h-full rounded-2xl flex flex-col justify-start gap-2 items-start'>
                         <motion.h1 initial={{opacity:0, y: -10}} animate={{opacity:1, y: 0}} transition={{duration:0.3, ease:"easeInOut"}} className='flex mb-4 justify-start gap-3 font-bold text-4xl text-text-col'>Your Expert-Developed Website Strategically Planned By AI </motion.h1>
                         <div className='w-1/2 min-h-30 flex items-center justify-start'>
                             <motion.p initial={{opacity: 0, y: -15}} animate={{opacity: 1, y: 0}}
                                       transition={{duration: 0.9, ease: "easeInOut"}}
-                                      className='mb-3 text-neutral-800'>We combine AI-powered planning with expert
+                                      className='mb-3 text-neutral-800 font-geist-mono-regular'>We combine AI-powered planning with expert
                                 development — so you get a website that actually delivers results.
                             </motion.p>
 

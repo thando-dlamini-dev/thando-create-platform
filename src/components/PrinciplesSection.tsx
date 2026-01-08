@@ -54,14 +54,14 @@ const PrinciplesSection = () => {
                         <div className='w-3/5 h-full mx-2'>
                             <motion.h1 initial={{opacity: 0, x: -70}} whileInView={{opacity: 1, x: 0}}
                                        transition={{duration: 2, ease: 'easeInOut', type: 'spring'}}
-                                       className='text-4xl font-bold text-text-col font-mono'>Built for Results-Driven
+                                       className='text-4xl font-bold text-text-col font-geist-mono-bold'>Built for Results-Driven
                                 Businesses
                             </motion.h1>
                         </div>
                         <div className='w-2/5 h-full px-2'>
                             <motion.p initial={{opacity: 0, x: -40}} whileInView={{opacity: 1, x: 0}}
                                       transition={{duration: 2.4, ease: 'easeInOut', type: 'spring'}}
-                                      className='font-mono text-text-col'>This platform embodies the principles that separate
+                                      className='font-geist-mono-regular text-text-col'>This platform embodies the principles that separate
                                 successful digital products from the rest.
                             </motion.p>
                         </div>
@@ -76,11 +76,11 @@ const PrinciplesSection = () => {
                                         key={principle.id}
                                         className={`${clicked === principle.title ? 'w-2/3' : 'w-2/5'} relative cursor-pointer hover:scale-102 transition-all duration-200 flex flex-col justify-start items-center bg-neutral-300 rounded-3xl h-full p-3 m-2 shadow-lg`}>
                                 <img src={principle.imageUrl} className='w-md h-full filter invert absolute left-0 top-0' alt=""/>
-                                <h1 className={`${clicked === principle.title ? 'text-xl text-accent' : 'text-lg '} ease-in-out transition-all duration-300 absolute bottom-5 left-6 text-2xl font-mono`}>{principle.title}</h1>
-                                <h1 className={`${clicked === principle.title ? 'text-xl text-accent rotate-225' : 'text-lg '} ease-in-out transition-all duration-700 absolute bottom-5 right-6 text-2xl font-mono`}>
+                                <h1 className={`${clicked === principle.title ? 'text-xl text-accent' : 'text-lg '} ease-in-out transition-all duration-300 absolute bottom-5 left-6 text-2xl font-geist-mono-regular`}>{principle.title}</h1>
+                                <h1 className={`${clicked === principle.title ? 'text-xl text-accent rotate-225' : 'text-lg '} ease-in-out transition-all duration-700 absolute bottom-5 right-6 text-2xl font-geist-mono-regular`}>
                                     <CirclePlusIcon/></h1>
                                 <motion.div
-                                    className={`font-mono w-1/2 h-2/3 absolute right-4 bg-white/0 rounded-2xl flex items-start justify-start p-3 overflow-hidden text-text-col transition-all duration-700 ease-in-out ${clicked === principle.title ? 'visible text-md backdrop-blur-xl' : 'text-[0px] '}`}>{principle.fullDescription}</motion.div>
+                                    className={`font-geist-mono-regular w-1/2 h-2/3 absolute right-4 bg-white/0 rounded-2xl flex items-start justify-start p-3 overflow-hidden text-text-col transition-all duration-700 ease-in-out ${clicked === principle.title ? 'visible text-md backdrop-blur-xl' : 'text-[0px] '}`}>{principle.fullDescription}</motion.div>
                             </motion.div>
                         ))}
                     </div>
