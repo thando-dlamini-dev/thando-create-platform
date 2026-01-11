@@ -7,7 +7,7 @@ const Pricing = () => {
             <div className="font-geist-mono w-screen h-screen flex flex-col justify-between items-center pt-20">
                 <div className="rounded-2xl w-6xl h-4/5 flex flex-col justify-between items-center pt-20">
                     <div className="w-2/3 h-40 flex-col text-center items-center justify-center">
-                        <h1 className="text-4xl font-geist-mono-regular text-black flex items-center justify-center gap-3">
+                        <h1 className="text-4xl font-geist-mono-bold text-black flex items-center justify-center gap-3">
                             Select A Plan To Begin
                         </h1>
                         <p className="pt-10 font-geist-mono-regular text-black">Tell us your goals. Get AI-crafted recommendations.
@@ -41,7 +41,7 @@ const Pricing = () => {
                             </div>
                             <div className="w-full h-40 text-black h-30 flex flex-col items-center justify-center">
                                 <span className="text-4xl font-geist-mono-bold">R5000</span>
-                                <span className="font-geist-mono-regular">Forever</span>
+                                <span className="font-geist-mono-regular">Once Off</span>
                             </div>
                             <div
                                 className="bg-green-600 w-full h-10 text-black flex mb-5 items-center cursor-pointer justify-center rounded-md border-0 border-neutral-200 shadow-s">

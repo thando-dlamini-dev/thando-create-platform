@@ -2,6 +2,7 @@ import HeroSection from "../components/HeroSection.tsx";
 import PrinciplesSection from "../components/PrinciplesSection.tsx";
 import Steps from "../components/Steps.tsx";
 import Pricing from "../components/Pricing.tsx";
+import Features from "../components/Features.tsx";
 
 const LandingPage = () => {
     return (
@@ -12,6 +13,7 @@ const LandingPage = () => {
                     <PrinciplesSection/>
                     <Steps/>
                     <Pricing/>
+                    <Features/>
                 </div>
             </section>
         </>
