@@ -3,6 +3,7 @@ import PrinciplesSection from "../components/PrinciplesSection.tsx";
 import Steps from "../components/Steps.tsx";
 import Pricing from "../components/Pricing.tsx";
 import Features from "../components/Features.tsx";
+import Section from "../components/Section.tsx";
 
 const LandingPage = () => {
     return (
@@ -14,6 +15,7 @@ const LandingPage = () => {
                     <Steps/>
                     <Pricing/>
                     <Features/>
+                    <Section/>
                 </div>
             </section>
         </>

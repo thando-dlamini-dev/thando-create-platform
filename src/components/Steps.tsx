@@ -19,7 +19,6 @@ const Steps = () => {
                     </div><div className="w-1/3 h-80 border-1 border-neutral-500 rounded-lg p-1">
                     </div><div className="w-1/3 h-80 border-1 border-neutral-500 rounded-lg p-1">
                     </div>
-
                 </div>
             </div>
             </div>
