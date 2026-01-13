@@ -7,6 +7,7 @@ import {AnimatePresence} from "framer-motion";
 import {Route, Routes} from "react-router-dom";
 import BuildPage from "./pages/BuildPage.tsx";
 import { useSmoothScroll } from "./useSmoothScroll.ts";
+import ServiceCustomizer from "./pages/ServiceCustomizer.tsx";
 
 const App = () =>  {
     useSmoothScroll();
@@ -21,6 +22,7 @@ const App = () =>  {
                     <Routes location={location} key={location.pathname}>
                         <Route path='/' element={<LandingPage/>}/>
                         <Route path='/build' element={<BuildPage/>}/>
+                        <Route path='/service-customizer' element={<ServiceCustomizer/>}/>
                     </Routes>
                     <Footer/>
                 </AnimatePresence>

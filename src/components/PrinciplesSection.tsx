@@ -22,7 +22,7 @@ const PrinciplesSection = () => {
             title: "Strategic Precision",
             subtitle: "No more guesswork in development",
             shortDescription: "Every feature is intentionally chosen based on data and AI-driven insights...",
-            fullDescription: "Our AI-powered platform analyzes your business goals, target audience, and industry trends to recommend only the features that deliver real value. Instead of overwhelming you with endless options, we provide data-backed recommendations that ensure you invest in what actually moves your business forward. This eliminates costly development mistakes and ensures every dollar spent contributes directly to your growth objectives.",
+            fullDescription: "Our AI-powered platform analyzes your business goals, target audience, and industry trends to recommend only the features that deliver real value. Instead of overwhelming you with endless options, we provide data-backed recommendations that ensure you invest in what actually moves your business forward.",
             imageUrl: "src/assets/img.png",
             imageAlt: "3D geometric brain with interconnected nodes representing AI strategy"
         },
@@ -31,7 +31,7 @@ const PrinciplesSection = () => {
             title: "Accelerated Execution",
             subtitle: "From idea to launch in record time",
             shortDescription: "Our streamlined process and clear planning eliminate bottlenecks...",
-            fullDescription: "Traditional web development can take months of back-and-forth. Our platform cuts through the noise with a streamlined workflow that reduces planning time by up to 70%. The clear visual builder and AI guidance eliminate decision paralysis, while our efficient development process ensures rapid implementation. Most projects launch in 3-4 weeks instead of the industry standard 2-3 months, getting you to market faster and starting to generate ROI sooner.",
+            fullDescription: "Traditional web development can take months of back-and-forth. Our platform cuts through the noise with a streamlined workflow that reduces planning time by up to 70%. The clear visual builder and AI guidance eliminate decision paralysis, while our efficient development process ensures rapid implementation. ",
             imageUrl: "src/assets/img_1.png",
             imageAlt: "3D sphere with motion trails representing speed and momentum"
         },
@@ -40,7 +40,7 @@ const PrinciplesSection = () => {
             title: "Craftsmanship Quality",
             subtitle: "Code that performs as beautifully as it looks",
             shortDescription: "Hand-crafted implementation with attention to every detail...",
-            fullDescription: "While our platform handles the planning, every line of code is hand-crafted by an experienced developer. We don't use generic templates or bloated frameworks. Each website is built with clean, optimized code that ensures fast loading times, excellent SEO performance, and seamless user experiences. From pixel-perfect design implementation to robust backend architecture, we maintain the highest standards of web craftsmanship that result in websites that not only look exceptional but perform flawlessly across all devices and platforms.",
+            fullDescription: "While our platform handles the planning, every line of code is hand-crafted by an experienced developer. We don't use generic templates or bloated frameworks. Each website is built with clean, optimized code that ensures fast loading times, excellent SEO performance, and seamless user experiences.",
             imageUrl: "src/assets/img_2.png",
             imageAlt: "3D precision mechanical assembly representing quality engineering"
         }
@@ -80,7 +80,7 @@ const PrinciplesSection = () => {
                                 <h1 className={`${clicked === principle.title ? 'text-xl text-accent rotate-225' : 'text-lg '} ease-in-out transition-all duration-700 absolute bottom-5 right-6 text-2xl font-geist-mono-regular`}>
                                     <CirclePlusIcon/></h1>
                                 <motion.div
-                                    className={`font-geist-mono-regular w-1/2 h-2/3 absolute right-4 bg-white/0 rounded-2xl flex items-start justify-start p-3 overflow-hidden text-text-col transition-all duration-700 ease-in-out ${clicked === principle.title ? 'visible text-sm backdrop-blur-xl' : 'text-[0px] '}`}>{principle.fullDescription}</motion.div>
+                                    className={`font-geist-mono-regular w-1/2 h-4/5 absolute right-4 bg-white/0 rounded-2xl flex items-start justify-start p-3 overflow-hidden text-text-col transition-all duration-700 ease-in-out ${clicked === principle.title ? 'visible text-sm backdrop-blur-xl' : 'text-[0px] '}`}>{principle.fullDescription}</motion.div>
                             </motion.div>
                         ))}
                     </div>

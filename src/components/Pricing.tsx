@@ -57,7 +57,7 @@ const Pricing = () => {
                             </div>
                             <div
                                 className="bg-green-600 w-full h-10 text-white flex mb-5 items-center cursor-pointer justify-center rounded-md border-0 border-neutral-200 shadow-s hover:bg-green-700">
-                                <Link to="/growth-pro" className="text-white">Start Strategy Session</Link>
+                                <Link to="/service-customizer" className="text-white">Start Strategy Session</Link>
                             </div>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Comprehensive AI strategy analysis</span>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Up to 5 custom pages</span>
