@@ -69,7 +69,7 @@ const Pricing = () => {
                         </div>
 
                         <div
-                            className="w-1/3 min-h-100 bg-neutral-200 shadow-md border-4 border-purple-600 rounded-2xl p-1 mt-20 flex-col items-start justify-start p-5">
+                            className="w-1/3 min-h-100 bg-neutral-200 shadow-md border-4 border-neutral-300 rounded-2xl p-1 mt-20 flex-col items-start justify-start p-5">
                             <div className="w-full text-black h-20 flex-col items-start justify-between">
                                 <h1 className="text-xl font-geist-mono-bold pb-2">Enterprise</h1>
                                 <p className="">Advanced features & payment integration</p>
@@ -80,16 +80,16 @@ const Pricing = () => {
                                 <span className="text-sm text-neutral-600 mt-2">4-5 week timeline</span>
                             </div>
                             <div
-                                className="bg-purple-600 w-full h-10 text-white flex mb-5 items-center cursor-pointer justify-center rounded-md border-0 border-neutral-200 shadow-s hover:bg-purple-700">
-                                <Link to="/enterprise" className="text-white">Book Consultation</Link>
+                                className="border-neutral-500 border-1 w-full h-10 text-white flex mb-5 items-center cursor-pointer justify-center rounded-md border-0 border-neutral-200 shadow-s hover:bg-purple-700">
+                                <Link to="/enterprise" className="text-black">Book Consultation</Link>
                             </div>
-                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-purple-600"/>Full AI-driven strategic planning</span>
-                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-purple-600"/>Unlimited pages + custom CMS</span>
-                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-purple-600"/>Payment system integration</span>
-                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-purple-600"/>Advanced security features</span>
-                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-purple-600"/>E-commerce capabilities</span>
-                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-purple-600"/>5+ rounds of revisions</span>
-                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-purple-600"/>Priority support & training</span>
+                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Full AI-driven strategic planning</span>
+                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Unlimited pages + custom CMS</span>
+                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Payment system integration</span>
+                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Advanced security features</span>
+                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>E-commerce capabilities</span>
+                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>5+ rounds of revisions</span>
+                            <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Priority support & training</span>
                         </div>
                     </div>
                 </div>
