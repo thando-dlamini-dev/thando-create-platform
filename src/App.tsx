@@ -6,11 +6,10 @@ import Footer from "./components/Footer.tsx";
 import {AnimatePresence} from "framer-motion";
 import {Route, Routes} from "react-router-dom";
 import BuildPage from "./pages/BuildPage.tsx";
-import { useSmoothScroll } from "./useSmoothScroll.ts";
 import ServiceCustomizer from "./pages/ServiceCustomizer.tsx";
 
 const App = () =>  {
-    useSmoothScroll();
+
     const location = useLocation();
 
     return (

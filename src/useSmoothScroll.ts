@@ -15,7 +15,7 @@ export const useSmoothScroll = () => {
         };
 
         const smooth = () => {
-            current += (target - current) * 0.075;
+            current += (target - current) * 0.2;
             root.style.transform = `translate3d(0, ${-current}px, 0)`;
             requestAnimationFrame(smooth);
         };

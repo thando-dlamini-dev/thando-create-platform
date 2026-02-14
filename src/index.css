@@ -47,14 +47,14 @@
 }
 
 body {
-  margin: 0;
-  overflow: hidden;
+  scroll-behavior: smooth;
 }
 
-.smooth-content {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  will-change: transform;
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%;
 }
+

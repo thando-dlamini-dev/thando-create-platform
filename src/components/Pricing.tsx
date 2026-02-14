@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom"
 import {CheckCircle, CheckIcon} from "lucide-react";
+import { useEffect, useState } from "react";
+
 
 const Pricing = () => {
+    const [selectedPrice, setSelectedPrice] = useState<number>(0);
+
+    //Update when user selects a price1
+    useEffect(() => {
+
+    },[selectedPrice])
     return(
         <>
             <div className="font-geist-mono w-screen h-screen flex flex-col justify-between items-center pt-20">
