@@ -75,7 +75,7 @@ interface SelectedOptions {
         accent: string;
     };
 
-    // Pricing & Status
+    // PricingSection & Status
     estimatedPrice: number;
     status: 'draft' | 'submitted' | 'reviewed' | 'accepted' | 'in_progress' | 'completed';
     customerNotes: string;
@@ -195,7 +195,7 @@ export const AddService = async (userId: string, selectedOptions: SelectedOption
         JSON.stringify(selectedOptions.colorPalette),
         JSON.stringify(selectedOptions.fontPreferences),
 
-        // Pricing & Status (direct from SelectedOptions)
+        // PricingSection & Status (direct from SelectedOptions)
         selectedOptions.estimatedPrice,
         selectedOptions.status,
         selectedOptions.customerNotes,

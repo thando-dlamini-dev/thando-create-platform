@@ -39,7 +39,7 @@ const ServiceCustomizer = () => {
             accent: "Geist Mono"
         },
 
-        // Pricing
+        // PricingSection
         estimated_price: 0,
         discount_code: ""
     });
@@ -51,7 +51,7 @@ const ServiceCustomizer = () => {
         "Pages & Structure",
         "Features",
         "Design",
-        "Review & Pricing"
+        "Review & PricingSection"
     ];
 
     // Available options

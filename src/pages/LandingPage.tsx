@@ -1,9 +1,10 @@
 import HeroSection from "../components/HeroSection.tsx";
 import PrinciplesSection from "../components/PrinciplesSection.tsx";
-import Steps from "../components/Steps.tsx";
-import Pricing from "../components/Pricing.tsx";
+import SectorsSection from "../components/SectorsSection.tsx";
+import PricingSection from "../components/PricingSection.tsx";
 import Features from "../components/Features.tsx";
 import Section from "../components/Section.tsx";
+import TechStackSection from "../components/TechStack.tsx";
 
 const LandingPage = () => {
     return (
@@ -12,8 +13,9 @@ const LandingPage = () => {
                 <div className='w-screen min-h-screen flex-col items-center justify-center'>
                     <HeroSection/>
                     <PrinciplesSection/>
-                    <Steps/>
-                    <Pricing/>
+                    <SectorsSection/>
+                    <TechStackSection/>
+                    <PricingSection/>
                     <Features/>
                     <Section/>
                 </div>

@@ -48,7 +48,7 @@ const PrinciplesSection = () => {
 
     return(
         <>
-            <section className='w-screen min-h-screen flex justify-center items-start mt-30 bg-background'>
+            <section className='w-screen 60-h-screen mb-40 flex justify-center items-start mt-30 bg-background'>
                 <div className='min-w-3/5 h-150 flex flex-col justify-between items-center'>
                     <div className='w-full h-1/4 flex flex-col items-start justify-start gap-3'>
                         <div className='w-3/5 h-full mx-2'>

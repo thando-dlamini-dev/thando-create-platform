@@ -3,7 +3,7 @@ import {CheckCircle, CheckIcon} from "lucide-react";
 import { useEffect, useState } from "react";
 
 
-const Pricing = () => {
+const PricingSection = () => {
     const [selectedPrice, setSelectedPrice] = useState<number>(0);
 
     //Update when user selects a price1
@@ -106,4 +106,4 @@ const Pricing = () => {
     )
 }
 
-export default Pricing
+export default PricingSection
