@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
     "@tabler/icons-react": "^3.35.0",
     "@tailwindcss/vite": "^4.1.14",
     "framer-motion": "^12.23.22",
@@ -21,6 +23,7 @@
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.3",
     "tailwindcss": "^4.1.14",
+    "three": "^0.182.0",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
