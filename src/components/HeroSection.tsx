@@ -24,24 +24,24 @@ const HeroSection = () => {
                                 </motion.p>
 
                             </div>
-                            <div className="w-1/2 h-20 flex flex-col items-start justify-between">
-                                <div className="w-full h-10 flex justify-between items-center">
-                                    <span
-                                        className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2
-                                        className="size-4 text-green-600"/> Responsive Design</span>
-                                    <span
-                                        className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2
-                                        className="size-4 text-green-600"/> Responsive Design</span>
-                                </div>
-                                <div className="w-full h-10 flex justify-between items-center">
-                                    <span
-                                        className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2
-                                        className="size-4 text-green-600"/> Responsive Design</span>
-                                    <span
-                                        className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2
-                                        className="size-4 text-green-600"/> Responsive Design</span>
-                                </div>
-                            </div>
+                            {/*<div className="w-1/2 h-20 flex flex-col items-start justify-between">*/}
+                            {/*    <div className="w-full h-10 flex justify-between items-center">*/}
+                            {/*        <span*/}
+                            {/*            className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2*/}
+                            {/*            className="size-4 text-green-600"/> Responsive Design</span>*/}
+                            {/*        <span*/}
+                            {/*            className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2*/}
+                            {/*            className="size-4 text-green-600"/> Responsive Design</span>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="w-full h-10 flex justify-between items-center">*/}
+                            {/*        <span*/}
+                            {/*            className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2*/}
+                            {/*            className="size-4 text-green-600"/> Responsive Design</span>*/}
+                            {/*        <span*/}
+                            {/*            className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2*/}
+                            {/*            className="size-4 text-green-600"/> Responsive Design</span>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                             <motion.div initial={{opacity: 0, y: -20}} animate={{opacity: 1, y: 0}}
                                         transition={{duration: 1, ease: "easeInOut"}}
                                         className='w-2/3 h-10 flex justify-start gap-10 items-center'>
