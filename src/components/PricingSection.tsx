@@ -12,7 +12,7 @@ const PricingSection = () => {
     },[selectedPrice])
     return(
         <>
-            <div className="font-geist-mono w-screen h-screen flex flex-col justify-between items-center pt-20">
+            <div className="font-geist-mono w-screen min-h-120 flex flex-col justify-between items-center">
                 <div className="rounded-2xl w-6xl h-4/5 flex flex-col justify-between items-center pt-20">
                     <div className="w-2/3 h-40 flex-col text-center items-center justify-center">
                         <h1 className="text-4xl font-geist-mono-bold text-black flex items-center justify-center gap-3">
