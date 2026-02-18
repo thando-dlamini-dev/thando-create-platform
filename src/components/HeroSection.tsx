@@ -53,7 +53,7 @@ const HeroSection = () => {
                                 <Link
                                     className='text-md text-text-col border-1 border-neutral-400 hover:text-accent py-2 px-6 rounded-sm font-light hover:scale-105 transition-all duration-300 flex justify-evenly items-center gap-3'
                                     to='/services'>
-                                    Explore Services
+                                    Get Started
                                 </Link>
                             </motion.div>
                         </div>
