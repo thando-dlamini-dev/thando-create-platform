@@ -1,3 +1,4 @@
+
 import HeroSection from "../components/HeroSection.tsx";
 import PrinciplesSection from "../components/PrinciplesSection.tsx";
 import SectorsSection from "../components/SectorsSection.tsx";

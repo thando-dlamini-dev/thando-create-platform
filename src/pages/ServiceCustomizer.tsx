@@ -6,6 +6,7 @@ import {
     BarChart, Target, Award, HeadphonesIcon, DollarSign, Sparkles,
     Plus, Minus, CreditCard, Globe, Server, Mail, Smartphone
 } from "lucide-react";
+import { Link } from "react-router-dom"
 
 const ServiceCustomizer = () => {
     interface View {
@@ -333,10 +334,10 @@ const ServiceCustomizer = () => {
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeView.id}
-                                initial={{x: -200, opacity: 0}}
+                                initial={{x: -20, opacity: 0}}
                                 animate={{x: 0, opacity: 1}}
-                                exit={{x: 200, opacity: 0}}
-                                transition={{duration: 0.5, ease: "easeInOut"}}
+                                exit={{x: 20, opacity: 0}}
+                                transition={{duration: 0.15, ease: "easeInOut"}}
                                 className="w-full h-full rounded-xl border border-neutral-200 bg-white shadow-lg absolute inset-0 overflow-y-auto"
                             >
                                 {/* Summary View */}
@@ -487,10 +488,10 @@ const ServiceCustomizer = () => {
 
                                         {/* Action Buttons */}
                                         <div className="space-y-3">
-                                            <button className="w-full bg-accent text-white py-3 rounded-lg font-geist-mono-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
+                                            <Link to="/checkout" className="w-full bg-accent text-white py-3 rounded-lg font-geist-mono-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
                                                 Continue to Checkout
                                                 <CreditCard className="size-4" />
-                                            </button>
+                                            </Link>
 
                                             <button className="w-full border border-neutral-300 text-neutral-700 py-2 rounded-lg font-geist-mono-regular hover:bg-neutral-50 transition-colors flex items-center justify-center gap-2">
                                                 Contact me for custom quote
