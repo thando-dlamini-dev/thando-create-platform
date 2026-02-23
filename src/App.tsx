@@ -15,9 +15,9 @@ const App = () =>  {
 
     return (
         <>
-            <Announcement/>
-            <NavBar/>
-            <div className="smooth-content">
+            {location.pathname !== '/checkout' && <NavBar />}
+            {location.pathname !== '/checkout' && <Announcement/>}
+            <div>
                 <AnimatePresence mode='wait'>
                     <Routes location={location} key={location.pathname}>
                         <Route path='/' element={<LandingPage/>}/>
@@ -25,7 +25,7 @@ const App = () =>  {
                         <Route path='/service-customizer' element={<ServiceCustomizer/>}/>
                         <Route path='/checkout' element={<CheckoutPage/>}/>
                     </Routes>
-                    <Footer/>
+                    {location.pathname !== '/checkout' && <Footer />}
                 </AnimatePresence>
             </div>
         </>

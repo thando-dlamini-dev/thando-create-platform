@@ -107,7 +107,6 @@ const ServiceCustomizer = () => {
         { id: 1, name: "Pricing" }
     ];
 
-    const [currentPage, setCurrentPage] = useState(1);
     const [activeView, setActiveView] = useState<View>(views[0]);
 
     // Selected options state
