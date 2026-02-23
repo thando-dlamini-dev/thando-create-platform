@@ -8,17 +8,19 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom"
 
+export interface BusinessType {
+    id: string;
+    name: string;
+    description: string;
+}
+
 const ServiceCustomizer = () => {
     interface View {
         id: number;
         name: string;
     }
 
-    interface BusinessType {
-        id: string;
-        name: string;
-        description: string;
-    }
+
 
     // Website Features
     const websiteFeatures = [
