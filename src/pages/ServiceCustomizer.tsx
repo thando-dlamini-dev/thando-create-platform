@@ -133,11 +133,12 @@ const ServiceCustomizer = () => {
     const [pageCount, setPageCount] = useState(1);
     const [hasEcommerce, setHasEcommerce] = useState(false);
 
-    const { setGlobalTotalPrice, setGlobalSelectedPages, setGlobalBusinessType } = useSelectedServiceStore();
+    const { setGlobalTotalPrice, setGlobalSelectedPages, setGlobalBusinessGoals, setGlobalBusinessType } = useSelectedServiceStore();
 
     const setCheckoutData = () => {
         setGlobalTotalPrice(totalPrice)
         setGlobalSelectedPages(selectedPages);
+        setGlobalBusinessGoals(selectedGoals)
         setGlobalBusinessType(businessType);
     }
 
