@@ -133,9 +133,10 @@ const ServiceCustomizer = () => {
     const [pageCount, setPageCount] = useState(1);
     const [hasEcommerce, setHasEcommerce] = useState(false);
 
-    const { setGlobalSelectedPages, setGlobalBusinessType } = useSelectedServiceStore();
+    const { setGlobalTotalPrice, setGlobalSelectedPages, setGlobalBusinessType } = useSelectedServiceStore();
 
     const setCheckoutData = () => {
+        setGlobalTotalPrice(totalPrice)
         setGlobalSelectedPages(selectedPages);
         setGlobalBusinessType(businessType);
     }
@@ -145,7 +146,7 @@ const ServiceCustomizer = () => {
         let basePrice = 5000;
 
         // Page count pricing
-        basePrice += (pageCount - 1) * 100;
+        basePrice += (pageCount - 1) * 300;
 
         // Feature pricing
         basePrice += selectedFeatures.length * 800;
