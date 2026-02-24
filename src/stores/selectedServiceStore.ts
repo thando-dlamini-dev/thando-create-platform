@@ -2,24 +2,24 @@ import { create } from "zustand"
 import type { BusinessType } from "../pages/ServiceCustomizer"
 
 interface SelectedService {
-    selectedPages: string[];
-    businessType: BusinessType;
-    setSelectedPage: (selectedPages: string[]) => void;
-    setBusinessType: (businessType: BusinessType) => void
+    globalSelectedPages: string[];
+    globalBusinessType: BusinessType;
+    setGlobalSelectedPages: (globalSelectedPages: string[]) => void;
+    setGlobalBusinessType: (globalBusinessType: BusinessType) => void
 }
 
 const useSelectedServiceStore = create<SelectedService>((set) => ({
-    selectedPages: [],
-    businessType: {
+    globalSelectedPages: [],
+    globalBusinessType: {
         id: "",
         name: "",
         description: ""
     },
-    setSelectedPage: (selectedPages: string[]) => {
-        set(() => ({selectedPages: selectedPages}));
+    setGlobalSelectedPages: (selectedPages: string[]) => {
+        set(() => ({globalSelectedPages: selectedPages}));
     },
-    setBusinessType: (businessType: BusinessType) => {
-        set(() => ({businessType: businessType}));
+    setGlobalBusinessType: (businessType: BusinessType) => {
+        set(() => ({globalBusinessType: businessType}));
     }
 }))
 

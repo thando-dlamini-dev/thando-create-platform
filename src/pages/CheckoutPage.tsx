@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { FaChevronCircleLeft } from "@react-icons/all-files/fa/FaChevronCircleLeft";
+import useSelectedServiceStore from "../stores/selectedServiceStore.ts";
 
 const CheckoutPage = () => {
+    const { globalSelectedPages, globalBusinessType } = useSelectedServiceStore()
+
     return (
         <>
             <div className='w-screen min-h-screen bg-neutral-50 flex items-center justify-between'>

@@ -1,12 +1,26 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-    CheckCircle, Clock, RotateCw, MessageCircle, Zap, Shield, Users, Star,
-    Layout, ShoppingCart, MessageSquare, Grid, Calendar, UserCircle,
-    BarChart, Target, Award, HeadphonesIcon, DollarSign, Sparkles,
-    Plus, Minus, CreditCard, Globe, Server, Mail, Smartphone
-} from "lucide-react";
 import { Link } from "react-router-dom"
+import { FaClipboardList } from "@react-icons/all-files/fa/FaClipboardList";
+import { BsMegaphoneFill } from "react-icons/bs";
+import { FaCreditCard } from "react-icons/fa6";
+import { MdMessage } from "react-icons/md";
+import { IoGrid } from "react-icons/io5";
+import { IoIosMail } from "react-icons/io";
+import { AiFillMessage } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
+import { FaCalendarCheck } from "react-icons/fa";
+import { AiFillLayout } from "react-icons/ai";
+import { FaServer } from "react-icons/fa";
+import { TbTargetArrow } from "react-icons/tb";
+import { FaAward } from "react-icons/fa6";
+import { FaHeadphones } from "react-icons/fa";
+import { LuBadgeDollarSign } from "react-icons/lu";
+import { FaCheckCircle } from "react-icons/fa";
+import { FaClock } from "react-icons/fa";
+import useSelectedServiceStore from "../stores/selectedServiceStore.ts";
+ import { DollarSign, Plus, Minus, Globe, Smartphone
+} from "lucide-react";
 
 export interface BusinessType {
     id: string;
@@ -14,26 +28,26 @@ export interface BusinessType {
     description: string;
 }
 
-const ServiceCustomizer = () => {
-    interface View {
-        id: number;
-        name: string;
-    }
+interface View {
+    id: number;
+    name: string;
+}
 
+const ServiceCustomizer = () => {
 
 
     // Website Features
     const websiteFeatures = [
-        { id: 'marketing', name: 'Marketing', icon: BarChart, category: 'engagement' },
-        { id: 'payment', name: 'Payment', icon: CreditCard, category: 'ecommerce' },
-        { id: 'forum', name: 'Forum', icon: MessageSquare, category: 'community' },
-        { id: 'inventory', name: 'Inventory', icon: Grid, category: 'ecommerce' },
-        { id: 'form', name: 'Form', icon: Mail, category: 'leads' },
-        { id: 'chat', name: 'Chat', icon: MessageCircle, category: 'support' },
-        { id: 'membership', name: 'Membership', icon: UserCircle, category: 'community' },
-        { id: 'booking', name: 'Booking', icon: Calendar, category: 'scheduling' },
-        { id: 'portfolio', name: 'Portfolio', icon: Layout, category: 'showcase' },
-        { id: 'dashboard', name: 'Dashboard', icon: Server, category: 'admin' },
+        { id: 'marketing', name: 'Marketing', icon: BsMegaphoneFill, category: 'engagement' },
+        { id: 'payment', name: 'Payment', icon: FaCreditCard, category: 'ecommerce' },
+        { id: 'forum', name: 'Forum', icon: MdMessage, category: 'community' },
+        { id: 'inventory', name: 'Inventory', icon: IoGrid, category: 'ecommerce' },
+        { id: 'form', name: 'Form', icon: IoIosMail, category: 'leads' },
+        { id: 'chat', name: 'Chat', icon: AiFillMessage, category: 'support' },
+        { id: 'membership', name: 'Membership', icon: FaUserCircle, category: 'community' },
+        { id: 'booking', name: 'Booking', icon: FaCalendarCheck, category: 'scheduling' },
+        { id: 'portfolio', name: 'Portfolio', icon: AiFillLayout, category: 'showcase' },
+        { id: 'dashboard', name: 'Dashboard', icon: FaServer, category: 'admin' },
     ];
 
     // Business Goals
@@ -41,25 +55,25 @@ const ServiceCustomizer = () => {
         {
             id: 1,
             title: "Generating Leads and Conversions",
-            icon: Target,
+            icon: TbTargetArrow,
             description: "Capture potential customer information and convert visitors"
         },
         {
             id: 2,
             title: "Building Brand Awareness and Authority",
-            icon: Award,
+            icon: FaAward,
             description: "Establish trust and recognition in your market"
         },
         {
             id: 3,
             title: "Enhancing Customer Service and Support",
-            icon: HeadphonesIcon,
+            icon: FaHeadphones,
             description: "Provide better support and engagement"
         },
         {
             id: 4,
             title: "Driving Sales and Revenue",
-            icon: DollarSign,
+            icon: LuBadgeDollarSign,
             description: "Increase online transactions and revenue"
         },
     ];
@@ -119,12 +133,19 @@ const ServiceCustomizer = () => {
     const [pageCount, setPageCount] = useState(1);
     const [hasEcommerce, setHasEcommerce] = useState(false);
 
+    const { setGlobalSelectedPages, setGlobalBusinessType } = useSelectedServiceStore();
+
+    const setCheckoutData = () => {
+        setGlobalSelectedPages(selectedPages);
+        setGlobalBusinessType(businessType);
+    }
+
     // Pricing calculation
     const calculatePrice = () => {
         let basePrice = 5000;
 
         // Page count pricing
-        basePrice += (pageCount - 1) * 1500;
+        basePrice += (pageCount - 1) * 100;
 
         // Feature pricing
         basePrice += selectedFeatures.length * 800;
@@ -197,7 +218,7 @@ const ServiceCustomizer = () => {
                                             <p className="text-sm text-neutral-600 mt-1">{type.description}</p>
                                         </div>
                                         {businessType.id === type.id && (
-                                            <CheckCircle className="size-5 text-accent" />
+                                            <FaCheckCircle className="size-5 text-accent" />
                                         )}
                                     </div>
                                 </button>
@@ -208,7 +229,7 @@ const ServiceCustomizer = () => {
                     {/* Pages Selection */}
                     <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm">
                         <h3 className="text-lg font-geist-mono-bold text-black mb-4 flex items-center gap-2">
-                            <Layout className="size-5 text-accent" />
+                            <AiFillLayout className="size-5 text-accent" />
                             Pages Required
                         </h3>
                         <div className="flex items-center gap-4 mb-4">
@@ -269,9 +290,9 @@ const ServiceCustomizer = () => {
                                                 : 'border-neutral-200 hover:border-neutral-300 bg-neutral-50'
                                         }`}
                                     >
-                                        <Icon className={`size-5 ${isSelected ? 'text-accent' : 'text-neutral-500'}`} />
-                                        <span className="text-sm font-geist-mono-medium">{feature.name}</span>
-                                        {isSelected && <CheckCircle className="size-4 text-accent ml-auto" />}
+                                        <Icon className={`size-5 text-neutral-600 ${isSelected ? 'text-accent' : 'text-neutral-500'}`} />
+                                        <span className="text-md text-neutral-600 font-geist-mono-medium">{feature.name}</span>
+                                        {isSelected && <FaCheckCircle className="size-4 text-accent ml-auto" />}
                                     </button>
                                 );
                             })}
@@ -281,7 +302,7 @@ const ServiceCustomizer = () => {
                     {/* Business Goals Grid */}
                     <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm">
                         <h3 className="text-lg font-geist-mono-bold text-black mb-4 flex items-center gap-2">
-                            <Target className="size-5 text-accent" />
+                            <TbTargetArrow className="size-5 text-accent" />
                             Main Business Goals
                         </h3>
                         <div className="grid grid-cols-2 gap-4">
@@ -300,10 +321,10 @@ const ServiceCustomizer = () => {
                                     >
                                         <div className="flex items-start justify-between mb-2">
                                             <Icon className={`size-6 ${isSelected ? 'text-accent' : 'text-neutral-500'}`} />
-                                            {isSelected && <CheckCircle className="size-5 text-accent" />}
+                                            {isSelected && <FaCheckCircle className="size-5 text-accent" />}
                                         </div>
-                                        <h4 className="font-geist-mono-bold text-sm mb-1">{goal.title}</h4>
-                                        <p className="text-xs text-neutral-600">{goal.description}</p>
+                                        <h4 className="font-geist-mono-bold text-lg mb-1 text-neutral-600">{goal.title}</h4>
+                                        <p className="text-ms text-neutral-600">{goal.description}</p>
                                     </button>
                                 );
                             })}
@@ -345,7 +366,7 @@ const ServiceCustomizer = () => {
                                 {activeView.name === "Summary" && (
                                     <div className="p-6 space-y-6">
                                         <h2 className="text-2xl font-geist-mono-bold text-black flex items-center gap-2">
-                                            <Sparkles className="size-6 text-accent" />
+                                            <FaClipboardList className="size-6 text-accent" />
                                             Your Project Summary
                                         </h2>
 
@@ -478,7 +499,7 @@ const ServiceCustomizer = () => {
                                         {/* Delivery Timeline */}
                                         <div className="bg-neutral-50 rounded-lg p-4 mb-6">
                                             <div className="flex items-center gap-2 mb-2">
-                                                <Clock className="size-4 text-accent" />
+                                                <FaClock className="size-4 text-accent" />
                                                 <span className="font-geist-mono-medium">Estimated Timeline</span>
                                             </div>
                                             <p className="text-sm text-neutral-600">
@@ -489,14 +510,14 @@ const ServiceCustomizer = () => {
 
                                         {/* Action Buttons */}
                                         <div className="space-y-3">
-                                            <Link to="/checkout" className="w-full bg-accent text-white py-3 rounded-lg font-geist-mono-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
+                                            <Link onClick={() => setCheckoutData()} to="/checkout" className="w-full bg-accent text-white py-3 rounded-lg font-geist-mono-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
                                                 Continue to Checkout
-                                                <CreditCard className="size-4" />
+                                                <FaCreditCard className="size-4" />
                                             </Link>
 
                                             <button className="w-full border border-neutral-300 text-neutral-700 py-2 rounded-lg font-geist-mono-regular hover:bg-neutral-50 transition-colors flex items-center justify-center gap-2">
                                                 Contact me for custom quote
-                                                <MessageCircle className="size-4" />
+                                                <AiFillMessage className="size-4" />
                                             </button>
                                         </div>
 
@@ -504,7 +525,7 @@ const ServiceCustomizer = () => {
                                         <div className="mt-6 pt-6 border-t border-neutral-200">
                                             <div className="flex items-start gap-3">
                                                 <div className="bg-neutral-100 p-2 rounded-lg">
-                                                    <Users className="size-5 text-neutral-600" />
+                                                    <FaUserCircle className="size-5 text-neutral-600" />
                                                 </div>
                                                 <div>
                                                     <p className="text-sm font-geist-mono-bold text-black">
