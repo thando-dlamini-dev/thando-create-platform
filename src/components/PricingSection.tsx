@@ -35,10 +35,11 @@ const PricingSection = () => {
                                     <span className="text-sm font-geist-mono-bold text-amber-800">Refer 5 businesses</span>
                                 </div>
                             </div>
-                            <div
+                            <Link
+                                to="/referral"
                                 className="w-full h-10 text-black flex mb-5 items-center cursor-pointer justify-center rounded-md border-1 border-neutral-400 shadow-sm hover:bg-neutral-300">
-                                <Link to="/referral" className="text-black">Learn How It Works</Link>
-                            </div>
+                                <span  className="text-black">Learn How It Works</span>
+                            </Link>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Single landing page website</span>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>AI strategy session included</span>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Mobile-responsive design</span>
@@ -63,10 +64,11 @@ const PricingSection = () => {
                                 <span className="font-geist-mono-regular">Once Off</span>
                                 <span className="text-sm text-neutral-600 mt-2">Launch in 3-4 weeks</span>
                             </div>
-                            <div
+                            <Link
+                                to="/service-customizer"
                                 className="bg-green-600 w-full h-10 text-white flex mb-5 items-center cursor-pointer justify-center rounded-md border-0 border-neutral-200 shadow-s hover:bg-green-700">
-                                <Link to="/service-customizer" className="text-white">Start Strategy Session</Link>
-                            </div>
+                                <span className="text-white">Start Strategy Session</span>
+                            </Link>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Comprehensive AI strategy analysis</span>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Up to 5 custom pages</span>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Contact form integration</span>
@@ -87,10 +89,11 @@ const PricingSection = () => {
                                 <span className="font-geist-mono-regular">Custom Quote</span>
                                 <span className="text-sm text-neutral-600 mt-2">4-5 week timeline</span>
                             </div>
-                            <div
+                            <Link
+                                to="/enterprise"
                                 className="border-neutral-500 border-1 w-full h-10 text-white flex mb-5 items-center cursor-pointer justify-center rounded-md border-0 border-neutral-200 shadow-s hover:bg-purple-700">
-                                <Link to="/enterprise" className="text-black">Book Consultation</Link>
-                            </div>
+                                <span  className="text-black">Book Consultation</span>
+                            </Link>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Full AI-driven strategic planning</span>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Unlimited pages + custom CMS</span>
                             <span className="text-neutral-600 mb-3 flex justify-start items-center gap-2"><CheckCircle className="size-4 text-green-600"/>Payment system integration</span>

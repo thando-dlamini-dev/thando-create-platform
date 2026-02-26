@@ -5,21 +5,6 @@ import {useState} from "react";
 import PhoneInput from 'react-phone-number-input'
 
 const CheckoutPage = () => {
-    interface CompletePaymentData {
-        merchant_id: number;
-        merchant_key: string;
-        return_url: string;
-        cancel_url: string;
-        notify_url: string;
-        name_first: string;
-        name_last: string;
-        email_address: string;
-        amount: number;
-        item_name: string;
-        item_description: string;
-        email_confirmation: boolean;
-        confirmation_address: string;
-    }
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -27,24 +12,6 @@ const CheckoutPage = () => {
     const [cellNumber, setCellNumber] = useState("");
 
     const { globalSelectedPages, globalBusinessType, globalTotalPrice } = useSelectedServiceStore()
-
-    const completePaymentData: CompletePaymentData = {
-        merchant_id: parseInt(process.env.PF_MERCHANT_ID!),
-        merchant_key: process.env.PF_MERCHANT_KEY!,
-        return_url: `${process.env.BACKEND_URL!}${process.env.RETURN_URL!}`,
-        cancel_url: `${process.env.BACKEND_URL!}${process.env.CANCEL_URL!}`,
-        notify_url: `${process.env.BACKEND_URL!}${process.env.NOTIFY_URL!}`,
-        name_first: firstName,
-        name_last: lastName,
-        email_address: email,
-        amount: globalTotalPrice,
-        item_name: globalBusinessType.name,
-        item_description: globalBusinessType.description,
-        email_confirmation: true,
-        confirmation_address: email
-    }
-
-
 
     return (
         <>
@@ -64,19 +31,23 @@ const CheckoutPage = () => {
                             </div>
                             <h1 className="text-accent text-5xl font-geist-mono-bold ">HECKOUT</h1>
                         </div>
-                        <p className="text-neutral-600">Please complete yoour payment using a valid credit/debit card number</p>
+                        <p className="text-neutral-600">Please complete your payment using a valid credit/debit card number</p>
                     </div>
                     {/*Input Area*/}
-                    <form action="https://www.payfast.co.za/eng/process"
+                    <form action={import.meta.env.VITE_SANDBOX_URL}
                           method="post" className="w-full min-h-50 flex flex-col justify-start items-start">
                         {/*Hidden inputs*/}
-                        <input type="hidden" name="merchant_id" value={process.env}/>
-                        <input type="hidden" name="merchant_key" value="46f0cd694581a"/>
-                        <input type="hidden" name="amount" value="100.00"/>
+                        <input type="hidden" name="merchant_id" value={import.meta.env.VITE_PF_SANDBOX_MERCHANT_ID}/>
+                        <input type="hidden" name="merchant_key" value={import.meta.env.VITE_PF_SANDBOX_MERCHANT_KEY}/>
+                        <input type="hidden" name="amount" value={globalTotalPrice}/>
+                        <input type="hidden" name="item_name" value={globalBusinessType.name}/>
+                        <input type="hidden" name="item_description" value={globalBusinessType.description}/>
+                        <input type="hidden" name={email} value="1"/>
+                        <input type="hidden" name="confirmation_address" value={email}/>
                         {/*Names*/}
                         <div className="w-full h-25 flex items-center bg-white justify-between gap-5">
                             <div className="w-full text-neutral-600 h-full flex-col items-start pt-3 justify-between">
-                                <h3 className="font-geist-mono">First Name</h3>
+                                <h3 className="font-geist-mono">{firstName}</h3>
                                 <input
                                     name="name_first"
                                     value={firstName}
@@ -85,7 +56,7 @@ const CheckoutPage = () => {
                                     className="w-full p-3 h-15 border-2 border-neutral-300 bg-neutral-00" type="text"/>
                             </div>
                             <div className="w-full text-neutral-600 h-full flex-col items-start pt-3 justify-between">
-                                <h3 className="font-geist-mono">Last Name</h3>
+                                <h3 className="font-geist-mono">{lastName}</h3>
                                 <input
                                     name="name_last"
                                     value={lastName}
@@ -99,22 +70,24 @@ const CheckoutPage = () => {
                             className="w-full h-25 flex items-center bg-white justify-between gap-5">
 
                             <div className="w-full text-neutral-600 h-full flex-col items-start pt-3 justify-between">
-                                <h3 className="font-geist-mono">Phone Number</h3>
+                                <h3 className="font-geist-mono">{cellNumber}</h3>
                                 <input
-                                    name="name_first"
+                                    name="cell_number"
                                     value={cellNumber}
-                                    id="phone number"
+                                    type="tel"
+                                    id="phone"
                                     onChange={(e) => setCellNumber(e.target.value)}
-                                    className="w-full p-3 h-15 border-2 border-neutral-300 bg-neutral-00" type="text"/>
+                                    className="w-full p-3 h-15 border-2 border-neutral-300 bg-neutral-00"/>
                             </div>
                             <div className="w-full text-neutral-600 h-full flex-col items-start pt-3 justify-between">
-                                <h3 className="font-geist-mono">Email Address</h3>
+                                <h3 className="font-geist-mono">{email}</h3>
                                 <input
-                                    name="name_last"
+                                    name="email_address"
                                     value={email}
-                                    id="email address"
+                                    type="email"
+                                    id="email"
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full p-3 h-15 border-2 border-neutral-300 bg-neutral-00" type="text"/>
+                                    className="w-full p-3 h-15 border-2 border-neutral-300 bg-neutral-00"/>
                             </div>
                         </div>
                         <button type="submit"

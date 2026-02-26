@@ -4,10 +4,12 @@ import type { BusinessType } from "../pages/ServiceCustomizer"
 interface SelectedService {
     globalTotalPrice: number;
     globalSelectedPages: string[];
+    globalSelectedFeatures: string[];
     globalBusinessGoals: number[];
     globalBusinessType: BusinessType;
     setGlobalTotalPrice: (totalPrice: number) => void;
     setGlobalSelectedPages: (globalSelectedPages: string[]) => void;
+    setGlobalSelectedFeatures: (globalSelectedFeatures: string[]) => void;
     setGlobalBusinessGoals: (businessGoals: number[]) => void
     setGlobalBusinessType: (globalBusinessType: BusinessType) => void
 }
@@ -15,6 +17,7 @@ interface SelectedService {
 const useSelectedServiceStore = create<SelectedService>((set) => ({
     globalTotalPrice: 0,
     globalSelectedPages: [],
+    globalSelectedFeatures: [],
     globalBusinessGoals: [],
     globalBusinessType: {
         id: "",
@@ -26,6 +29,9 @@ const useSelectedServiceStore = create<SelectedService>((set) => ({
     },
     setGlobalSelectedPages: (selectedPages: string[]) => {
         set(() => ({globalSelectedPages: selectedPages}));
+    },
+    setGlobalSelectedFeatures: (selectedFeatures: string[]) => {
+        set(() => ({globalSelectedFeatures: selectedFeatures}));
     },
     setGlobalBusinessGoals: (businessGoals: number[]) => {
         set(() => ({globalBusinessGoals: businessGoals}));

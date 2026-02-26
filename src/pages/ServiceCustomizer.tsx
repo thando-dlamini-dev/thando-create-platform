@@ -21,6 +21,7 @@ import { FaClock } from "react-icons/fa";
 import useSelectedServiceStore from "../stores/selectedServiceStore.ts";
  import { DollarSign, Plus, Minus, Globe, Smartphone
 } from "lucide-react";
+import features from "../components/Features.tsx";
 
 export interface BusinessType {
     id: string;
@@ -133,11 +134,12 @@ const ServiceCustomizer = () => {
     const [pageCount, setPageCount] = useState(1);
     const [hasEcommerce, setHasEcommerce] = useState(false);
 
-    const { setGlobalTotalPrice, setGlobalSelectedPages, setGlobalBusinessGoals, setGlobalBusinessType } = useSelectedServiceStore();
+    const { setGlobalTotalPrice, setGlobalSelectedPages, setGlobalSelectedFeatures,  setGlobalBusinessGoals, setGlobalBusinessType } = useSelectedServiceStore();
 
     const setCheckoutData = () => {
         setGlobalTotalPrice(totalPrice)
         setGlobalSelectedPages(selectedPages);
+        setGlobalSelectedFeatures(selectedFeatures);
         setGlobalBusinessGoals(selectedGoals)
         setGlobalBusinessType(businessType);
     }
