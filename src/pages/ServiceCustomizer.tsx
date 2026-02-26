@@ -19,14 +19,22 @@ import { LuBadgeDollarSign } from "react-icons/lu";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
 import useSelectedServiceStore from "../stores/selectedServiceStore.ts";
- import { DollarSign, Plus, Minus, Globe, Smartphone
-} from "lucide-react";
-import features from "../components/Features.tsx";
+ import {
+    DollarSign, Plus, Minus, Globe, Smartphone,
+ } from "lucide-react";
+ import type { IconType } from "@react-icons/all-files"
+import { GiSouthAfricaFlag } from "react-icons/gi";
+import { FaStore } from "react-icons/fa";
+import { MdOutlineMiscellaneousServices } from "react-icons/md";
+import { IoRocketSharp } from "react-icons/io5";
+import { BsFillBuildingsFill } from "react-icons/bs";
+import { FaHandHoldingHeart } from "react-icons/fa";
 
 export interface BusinessType {
     id: string;
     name: string;
     description: string;
+    icon: IconType
 }
 
 interface View {
@@ -84,32 +92,38 @@ const ServiceCustomizer = () => {
         {
             id: 'local',
             name: "Local Business",
-            description: "Brick-and-mortar stores, restaurants, salons serving local customers"
+            description: "Brick-and-mortar stores, restaurants, salons serving local customers",
+            icon: GiSouthAfricaFlag
         },
         {
             id: 'ecommerce',
             name: "E-commerce",
-            description: "Online stores selling products directly to customers"
+            description: "Online stores selling products directly to customers",
+            icon:FaStore
         },
         {
             id: 'service',
             name: "Service Provider",
-            description: "Plumbers, electricians, consultants offering professional services"
+            description: "Plumbers, electricians, consultants offering professional services",
+            icon: MdOutlineMiscellaneousServices
         },
         {
             id: 'startup',
             name: "Startup",
-            description: "Early-stage companies looking to establish digital presence"
+            description: "Early-stage companies looking to establish digital presence",
+            icon: IoRocketSharp
         },
         {
             id: 'enterprise',
             name: "Enterprise",
-            description: "Large organizations needing complex, scalable solutions"
+            description: "Large organizations needing complex, scalable solutions",
+            icon: BsFillBuildingsFill
         },
         {
             id: 'nonprofit',
             name: "Non-profit",
-            description: "Charities, NGOs, community organizations"
+            description: "Charities, NGOs, community organizations",
+            icon: FaHandHoldingHeart
         },
     ];
 
@@ -132,10 +146,11 @@ const ServiceCustomizer = () => {
     const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
     const [selectedGoals, setSelectedGoals] = useState<number[]>([]);
     const [pageCount, setPageCount] = useState(1);
-    const [hasEcommerce, setHasEcommerce] = useState(false);
+    const [hasEcommerce] = useState(false);
 
     const { setGlobalTotalPrice, setGlobalSelectedPages, setGlobalSelectedFeatures,  setGlobalBusinessGoals, setGlobalBusinessType } = useSelectedServiceStore();
 
+    //Store user selections in global states for access in multiple files
     const setCheckoutData = () => {
         setGlobalTotalPrice(totalPrice)
         setGlobalSelectedPages(selectedPages);

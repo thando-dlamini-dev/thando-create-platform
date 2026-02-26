@@ -11,7 +11,7 @@ const CheckoutPage = () => {
     const [email, setEmail] = useState("");
     const [cellNumber, setCellNumber] = useState("");
 
-    const { globalSelectedPages, globalBusinessType, globalTotalPrice } = useSelectedServiceStore()
+    const { globalSelectedPages, globalSelectedFeatures, globalBusinessGoals, globalBusinessType, globalTotalPrice } = useSelectedServiceStore()
 
     return (
         <>
@@ -98,9 +98,15 @@ const CheckoutPage = () => {
 
                 </div>
                 {/*Right section*/}
-                <div className="w-1/3 h-screen bg-neutral-300 flex flex-col  items-start gap-10 justify-start">
-                <div className="flex justify-between items-center w-full h-20 bg-gray-500">
-
+                <div className="w-1/3 h-screen bg-neutral-3 flex flex-col  items-start gap-10 justify-start px-10">
+                    <div className="flex justify-center mt-10 items-center w-full h-20 bg-gray-">
+                        <h1 className="font-geist-mono-bold text-3xl text-neutral-600">Order Summary</h1>
+                    </div>
+                    <div className="flex flex-col justify-start mt-10 items-start p-3 w-full min-h-20 border-2 border-neutral-300 rounded-2xl">
+                        <h2 className="text-neutral-600 text-lg font-bold pb-3">Business Type</h2>
+                        <div className="w-full h-20 bg-neutral-300 rounded-xl">
+                            {globalBusinessType.name}
+                        </div>
                     </div>
                 </div>
             </div>
