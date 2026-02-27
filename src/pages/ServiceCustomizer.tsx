@@ -3,32 +3,26 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom"
 import { FaClipboardList } from "@react-icons/all-files/fa/FaClipboardList";
 import { BsMegaphoneFill } from "react-icons/bs";
-import { FaCreditCard } from "react-icons/fa6";
+import { FaCreditCard, FaCheckCircle, FaUserCircle, FaClock, FaStore, FaHandHoldingHeart } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { IoGrid } from "react-icons/io5";
 import { IoIosMail } from "react-icons/io";
 import { AiFillMessage } from "react-icons/ai";
-import { FaUserCircle } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa";
 import { AiFillLayout } from "react-icons/ai";
 import { FaServer } from "react-icons/fa";
 import { TbTargetArrow } from "react-icons/tb";
-import { FaAward } from "react-icons/fa6";
-import { FaHeadphones } from "react-icons/fa";
+import { FaAward, FaHeadphones } from "react-icons/fa6";
 import { LuBadgeDollarSign } from "react-icons/lu";
-import { FaCheckCircle } from "react-icons/fa";
-import { FaClock } from "react-icons/fa";
-import useSelectedServiceStore from "../stores/selectedServiceStore.ts";
- import {
-    DollarSign, Plus, Minus, Globe, Smartphone,
- } from "lucide-react";
- import type { IconType } from "@react-icons/all-files"
 import { GiSouthAfricaFlag } from "react-icons/gi";
-import { FaStore } from "react-icons/fa";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
 import { IoRocketSharp } from "react-icons/io5";
 import { BsFillBuildingsFill } from "react-icons/bs";
-import { FaHandHoldingHeart } from "react-icons/fa";
+import {
+    DollarSign, Plus, Minus, Globe, Smartphone,
+} from "lucide-react";
+import type { IconType } from "react-icons";
+import useSelectedServiceStore from "../stores/selectedServiceStore.ts";
 
 export interface BusinessType {
     id: string;
@@ -42,11 +36,16 @@ interface View {
     name: string;
 }
 
+export interface Feature {
+    id: string;
+    name: string;
+    icon: IconType;
+    category: string;
+}
+
 const ServiceCustomizer = () => {
-
-
     // Website Features
-    const websiteFeatures = [
+    const websiteFeatures: Feature[] = [
         { id: 'marketing', name: 'Marketing', icon: BsMegaphoneFill, category: 'engagement' },
         { id: 'payment', name: 'Payment', icon: FaCreditCard, category: 'ecommerce' },
         { id: 'forum', name: 'Forum', icon: MdMessage, category: 'community' },
@@ -99,7 +98,7 @@ const ServiceCustomizer = () => {
             id: 'ecommerce',
             name: "E-commerce",
             description: "Online stores selling products directly to customers",
-            icon:FaStore
+            icon: FaStore
         },
         {
             id: 'service',
@@ -143,19 +142,19 @@ const ServiceCustomizer = () => {
     // Selected options state
     const [selectedPages, setSelectedPages] = useState<string[]>(["Landing Page"]);
     const [businessType, setBusinessType] = useState<BusinessType>(businessTypes[0]);
-    const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+    const [selectedFeatures, setSelectedFeatures] = useState<Feature[]>([]);
     const [selectedGoals, setSelectedGoals] = useState<number[]>([]);
     const [pageCount, setPageCount] = useState(1);
     const [hasEcommerce] = useState(false);
 
-    const { setGlobalTotalPrice, setGlobalSelectedPages, setGlobalSelectedFeatures,  setGlobalBusinessGoals, setGlobalBusinessType } = useSelectedServiceStore();
+    const { setGlobalTotalPrice, setGlobalSelectedPages, setGlobalSelectedFeatures, setGlobalBusinessGoals, setGlobalBusinessType } = useSelectedServiceStore();
 
-    //Store user selections in global states for access in multiple files
+    // Store user selections in global states for access in multiple files
     const setCheckoutData = () => {
-        setGlobalTotalPrice(totalPrice)
+        setGlobalTotalPrice(totalPrice);
         setGlobalSelectedPages(selectedPages);
         setGlobalSelectedFeatures(selectedFeatures);
-        setGlobalBusinessGoals(selectedGoals)
+        setGlobalBusinessGoals(selectedGoals);
         setGlobalBusinessType(businessType);
     }
 
@@ -170,7 +169,10 @@ const ServiceCustomizer = () => {
         basePrice += selectedFeatures.length * 800;
 
         // E-commerce addition
-        if (hasEcommerce || selectedFeatures.includes('payment') || selectedFeatures.includes('inventory')) {
+        const hasPaymentFeature = selectedFeatures.some(f => f.name === "Payment");
+        const hasInventoryFeature = selectedFeatures.some(f => f.name === "Inventory");
+
+        if (hasEcommerce || hasPaymentFeature || hasInventoryFeature) {
             basePrice += 3000;
         }
 
@@ -182,11 +184,17 @@ const ServiceCustomizer = () => {
     };
 
     const toggleFeature = (featureId: string) => {
-        setSelectedFeatures(prev =>
-            prev.includes(featureId)
-                ? prev.filter(f => f !== featureId)
-                : [...prev, featureId]
-        );
+        setSelectedFeatures(prev => {
+            const feature = websiteFeatures.find(f => f.id === featureId);
+            if (!feature) return prev;
+
+            const exists = prev.some(f => f.id === featureId);
+            if (exists) {
+                return prev.filter(f => f.id !== featureId);
+            } else {
+                return [...prev, feature];
+            }
+        });
     };
 
     const toggleGoal = (goalId: number) => {
@@ -199,23 +207,27 @@ const ServiceCustomizer = () => {
 
     const togglePage = (page: string) => {
         if (page === "Landing Page") return; // Always keep landing page
-        setSelectedPages(prev =>
-            prev.includes(page)
-                ? prev.filter(p => p !== page)
-                : [...prev, page]
-        );
-        setPageCount(prev => prev + (selectedPages.includes(page) ? -1 : 1));
+        setSelectedPages(prev => {
+            const exists = prev.includes(page);
+            if (exists) {
+                setPageCount(prevCount => prevCount - 1);
+                return prev.filter(p => p !== page);
+            } else {
+                setPageCount(prevCount => prevCount + 1);
+                return [...prev, page];
+            }
+        });
     };
 
     const totalPrice = calculatePrice();
 
     return (
         <div className='w-screen min-h-screen bg-neutral-50 pt-23'>
-            <div className="w-screen h-screen flex justify-between items-start p-8 gap-8">
+            <div className="w-screen h-screen flex flex-col lg:flex-row justify-between items-start p-4 lg:p-8 gap-4 lg:gap-8">
                 {/* Left Side - Configuration Panel */}
-                <div className="w-3/5 h-full overflow-y-auto pr-4 space-y-6">
+                <div className="w-full lg:w-3/5 h-full overflow-y-auto pr-0 lg:pr-4 space-y-6">
                     {/* Business Type - Updated with cards and descriptions */}
-                    <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm">
+                    <div className="bg-white rounded-xl border border-neutral-200 p-4 lg:p-6 shadow-sm">
                         <h3 className="text-lg font-geist-mono-bold text-black mb-4 flex items-center gap-2">
                             <Globe className="size-5 text-accent" />
                             Business Type
@@ -246,7 +258,7 @@ const ServiceCustomizer = () => {
                     </div>
 
                     {/* Pages Selection */}
-                    <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm">
+                    <div className="bg-white rounded-xl border border-neutral-200 p-4 lg:p-6 shadow-sm">
                         <h3 className="text-lg font-geist-mono-bold text-black mb-4 flex items-center gap-2">
                             <AiFillLayout className="size-5 text-accent" />
                             Pages Required
@@ -290,15 +302,15 @@ const ServiceCustomizer = () => {
                     </div>
 
                     {/* Website Features Grid */}
-                    <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm">
+                    <div className="bg-white rounded-xl border border-neutral-200 p-4 lg:p-6 shadow-sm">
                         <h3 className="text-lg font-geist-mono-bold text-black mb-4 flex items-center gap-2">
                             <Smartphone className="size-5 text-accent" />
                             Website Features
                         </h3>
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             {websiteFeatures.map((feature) => {
                                 const Icon = feature.icon;
-                                const isSelected = selectedFeatures.includes(feature.id);
+                                const isSelected = selectedFeatures.some(f => f.id === feature.id);
                                 return (
                                     <button
                                         key={feature.id}
@@ -309,7 +321,7 @@ const ServiceCustomizer = () => {
                                                 : 'border-neutral-200 hover:border-neutral-300 bg-neutral-50'
                                         }`}
                                     >
-                                        <Icon className={`size-5 text-neutral-600 ${isSelected ? 'text-accent' : 'text-neutral-500'}`} />
+                                        <Icon className={`size-5 ${isSelected ? 'text-accent' : 'text-neutral-500'}`} />
                                         <span className="text-md text-neutral-600 font-geist-mono-medium">{feature.name}</span>
                                         {isSelected && <FaCheckCircle className="size-4 text-accent ml-auto" />}
                                     </button>
@@ -319,12 +331,12 @@ const ServiceCustomizer = () => {
                     </div>
 
                     {/* Business Goals Grid */}
-                    <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm">
+                    <div className="bg-white rounded-xl border border-neutral-200 p-4 lg:p-6 shadow-sm">
                         <h3 className="text-lg font-geist-mono-bold text-black mb-4 flex items-center gap-2">
                             <TbTargetArrow className="size-5 text-accent" />
                             Main Business Goals
                         </h3>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {businessGoals.map((goal) => {
                                 const Icon = goal.icon;
                                 const isSelected = selectedGoals.includes(goal.id);
@@ -342,8 +354,8 @@ const ServiceCustomizer = () => {
                                             <Icon className={`size-6 ${isSelected ? 'text-accent' : 'text-neutral-500'}`} />
                                             {isSelected && <FaCheckCircle className="size-5 text-accent" />}
                                         </div>
-                                        <h4 className="font-geist-mono-bold text-lg mb-1 text-neutral-600">{goal.title}</h4>
-                                        <p className="text-ms text-neutral-600">{goal.description}</p>
+                                        <h4 className="font-geist-mono-bold text-sm lg:text-lg mb-1 text-neutral-600">{goal.title}</h4>
+                                        <p className="text-xs lg:text-sm text-neutral-600">{goal.description}</p>
                                     </button>
                                 );
                             })}
@@ -352,26 +364,26 @@ const ServiceCustomizer = () => {
                 </div>
 
                 {/* Right Side - Summary/Pricing Panel */}
-                <div className="w-2/5 h-full flex flex-col items-center justify-start gap-6">
+                <div className="w-full lg:w-2/5 h-full flex flex-col items-center justify-start gap-4 lg:gap-6">
                     {/* View Toggle */}
                     <div className="w-full h-12 flex justify-evenly items-center gap-2">
                         {views.map((view) => (
-                            <span
+                            <button
+                                key={view.id}
                                 onClick={() => setActiveView(view)}
-                                className={`text-xl px-3 py-1 cursor-pointer rounded-lg font-geist-mono-regular transition-all duration-300 ${
+                                className={`text-lg lg:text-xl px-3 py-1 cursor-pointer rounded-lg font-geist-mono-regular transition-all duration-300 ${
                                     activeView.name === view.name
                                         ? "bg-accent text-white"
                                         : "border border-neutral-300 text-neutral-600 hover:bg-neutral-100"
                                 }`}
-                                key={view.id}
                             >
                                 {view.name}
-                            </span>
+                            </button>
                         ))}
                     </div>
 
                     {/* Animated Content Area */}
-                    <div className="w-full h-[600px] relative">
+                    <div className="w-full h-[500px] lg:h-[600px] relative">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeView.id}
@@ -383,9 +395,9 @@ const ServiceCustomizer = () => {
                             >
                                 {/* Summary View */}
                                 {activeView.name === "Summary" && (
-                                    <div className="p-6 space-y-6">
-                                        <h2 className="text-2xl font-geist-mono-bold text-black flex items-center gap-2">
-                                            <FaClipboardList className="size-6 text-accent" />
+                                    <div className="p-4 lg:p-6 space-y-6">
+                                        <h2 className="text-xl lg:text-2xl font-geist-mono-bold text-black flex items-center gap-2">
+                                            <FaClipboardList className="size-5 lg:size-6 text-accent" />
                                             Your Project Summary
                                         </h2>
 
@@ -413,14 +425,11 @@ const ServiceCustomizer = () => {
                                             <div className="border-b border-neutral-100 pb-4">
                                                 <span className="text-sm text-neutral-400">FEATURES</span>
                                                 <div className="flex flex-wrap gap-2 mt-2">
-                                                    {selectedFeatures.map((featureId) => {
-                                                        const feature = websiteFeatures.find(f => f.id === featureId);
-                                                        return feature && (
-                                                            <span key={featureId} className="px-3 py-1 bg-neutral-100 text-neutral-700 rounded-full text-sm">
-                                                                {feature.name}
-                                                            </span>
-                                                        );
-                                                    })}
+                                                    {selectedFeatures.map((feature) => (
+                                                        <span key={feature.id} className="px-3 py-1 bg-neutral-100 text-neutral-700 rounded-full text-sm">
+                                                            {feature.name}
+                                                        </span>
+                                                    ))}
                                                 </div>
                                             </div>
                                         )}
@@ -461,9 +470,9 @@ const ServiceCustomizer = () => {
 
                                 {/* Pricing View */}
                                 {activeView.name === "Pricing" && (
-                                    <div className="p-6">
-                                        <h2 className="text-2xl font-geist-mono-bold text-black mb-6 flex items-center gap-2">
-                                            <DollarSign className="size-6 text-accent" />
+                                    <div className="p-4 lg:p-6">
+                                        <h2 className="text-xl lg:text-2xl font-geist-mono-bold text-black mb-6 flex items-center gap-2">
+                                            <DollarSign className="size-5 lg:size-6 text-accent" />
                                             Your Custom Quote
                                         </h2>
 
@@ -475,8 +484,8 @@ const ServiceCustomizer = () => {
                                             </div>
                                             {pageCount > 1 && (
                                                 <div className="flex justify-between text-sm">
-                                                    <span className="text-neutral-600">Additional Pages ({(pageCount - 1)} × ZAR 1,500)</span>
-                                                    <span className="font-geist-mono-medium">ZAR {(pageCount - 1) * 1500}</span>
+                                                    <span className="text-neutral-600">Additional Pages ({(pageCount - 1)} × ZAR 300)</span>
+                                                    <span className="font-geist-mono-medium">ZAR {(pageCount - 1) * 300}</span>
                                                 </div>
                                             )}
                                             {selectedFeatures.length > 0 && (
@@ -485,7 +494,7 @@ const ServiceCustomizer = () => {
                                                     <span className="font-geist-mono-medium">ZAR {selectedFeatures.length * 800}</span>
                                                 </div>
                                             )}
-                                            {(hasEcommerce || selectedFeatures.includes('payment') || selectedFeatures.includes('inventory')) && (
+                                            {(hasEcommerce || selectedFeatures.some(f => f.name === "Payment") || selectedFeatures.some(f => f.name === "Inventory")) && (
                                                 <div className="flex justify-between text-sm">
                                                     <span className="text-neutral-600">E-commerce Setup</span>
                                                     <span className="font-geist-mono-medium">ZAR 3,000</span>
@@ -529,7 +538,11 @@ const ServiceCustomizer = () => {
 
                                         {/* Action Buttons */}
                                         <div className="space-y-3">
-                                            <Link onClick={() => setCheckoutData()} to="/checkout" className="w-full bg-accent text-white py-3 rounded-lg font-geist-mono-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
+                                            <Link
+                                                onClick={() => setCheckoutData()}
+                                                to="/checkout"
+                                                className="w-full bg-accent text-white py-3 rounded-lg font-geist-mono-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2"
+                                            >
                                                 Continue to Checkout
                                                 <FaCreditCard className="size-4" />
                                             </Link>
@@ -553,7 +566,7 @@ const ServiceCustomizer = () => {
                                                     <p className="text-xs text-neutral-600 mt-1">
                                                         Hire by the hour, ideal for long-term projects with flexible hours and weekly payments.
                                                     </p>
-                                                    <div className="mt-3 flex items-center justify-between">
+                                                    <div className="mt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                                                         <span className="text-lg font-geist-mono-bold text-accent">
                                                             ZAR 590.64/hour
                                                         </span>

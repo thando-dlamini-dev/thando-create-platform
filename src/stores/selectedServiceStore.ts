@@ -1,15 +1,16 @@
 import { create } from "zustand"
-import type { BusinessType } from "../pages/ServiceCustomizer"
+import type { BusinessType, Feature } from "../pages/ServiceCustomizer"
+import { FaCircleH } from "react-icons/fa6";
 
 interface SelectedService {
     globalTotalPrice: number;
     globalSelectedPages: string[];
-    globalSelectedFeatures: string[];
+    globalSelectedFeatures: Feature[];
     globalBusinessGoals: number[];
     globalBusinessType: BusinessType;
     setGlobalTotalPrice: (totalPrice: number) => void;
     setGlobalSelectedPages: (globalSelectedPages: string[]) => void;
-    setGlobalSelectedFeatures: (globalSelectedFeatures: string[]) => void;
+    setGlobalSelectedFeatures: (globalSelectedFeatures: Feature[]) => void;
     setGlobalBusinessGoals: (businessGoals: number[]) => void
     setGlobalBusinessType: (globalBusinessType: BusinessType) => void
 }
@@ -22,7 +23,8 @@ const useSelectedServiceStore = create<SelectedService>((set) => ({
     globalBusinessType: {
         id: "",
         name: "",
-        description: ""
+        description: "",
+        icon: FaCircleH
     },
     setGlobalTotalPrice: (totalPrice: number) => {
         set(() => ({globalTotalPrice: totalPrice}));
@@ -30,7 +32,7 @@ const useSelectedServiceStore = create<SelectedService>((set) => ({
     setGlobalSelectedPages: (selectedPages: string[]) => {
         set(() => ({globalSelectedPages: selectedPages}));
     },
-    setGlobalSelectedFeatures: (selectedFeatures: string[]) => {
+    setGlobalSelectedFeatures: (selectedFeatures: Feature[]) => {
         set(() => ({globalSelectedFeatures: selectedFeatures}));
     },
     setGlobalBusinessGoals: (businessGoals: number[]) => {

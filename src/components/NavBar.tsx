@@ -26,11 +26,6 @@ const NavBar = () => {
 
     const links: Link[] = [
         {
-            delay: 0.1,
-            name: "Home",
-            url: "/about"
-        },
-        {
             delay: 0.2,
             name: "About",
             url: "/about",
@@ -42,8 +37,8 @@ const NavBar = () => {
         },
         {
             delay: 0.4,
-            name: "Build",
-            url: "/build",
+            name: "Portfolio",
+            url: "/portfolio",
         },
         {
             delay: 0.5,
