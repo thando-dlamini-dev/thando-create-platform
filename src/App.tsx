@@ -8,6 +8,7 @@ import {Route, Routes} from "react-router-dom";
 import BuildPage from "./pages/BuildPage.tsx";
 import ServiceCustomizer from "./pages/ServiceCustomizer.tsx";
 import CheckoutPage from "./pages/CheckoutPage.tsx";
+import PortfolioPage from "./pages/PortfolioPage.tsx";
 
 const App = () =>  {
 
@@ -24,6 +25,7 @@ const App = () =>  {
                         <Route path='/build' element={<BuildPage/>}/>
                         <Route path='/service-customizer' element={<ServiceCustomizer/>}/>
                         <Route path='/checkout' element={<CheckoutPage/>}/>
+                        <Route path='/portfolio' element={<PortfolioPage/>}/>
                     </Routes>
                     {location.pathname !== '/checkout' && <Footer />}
                 </AnimatePresence>
