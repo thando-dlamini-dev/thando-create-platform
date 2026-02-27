@@ -1,5 +1,13 @@
-import type { Icontype } from "@react-icons"
 import { FaReact } from "react-icons/fa";
+import { GrMysql } from "react-icons/gr";
+import { SiExpress } from "react-icons/si";
+import { BiLogoTypescript } from "react-icons/bi";
+import { IoLogoSass } from "react-icons/io";
+import { IoLogoNodejs } from "react-icons/io";
+import { IoLogoJavascript } from "react-icons/io5";
+import { IoLogoCss3 } from "react-icons/io5";
+import { IoLogoHtml5 } from "react-icons/io";
+import { RiTailwindCssFill } from "react-icons/ri";
 import type {IconType} from "react-icons";
 
 const PortfolioPage = () => {
