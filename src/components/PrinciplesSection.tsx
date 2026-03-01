@@ -73,7 +73,7 @@ const PrinciplesSection = () => {
                         </div>
                     </div>
 
-                    {/* Cards Container - Fixed for large screens */}
+                    {/* Cards Container */}
                     <div className='w-full lg:w-2/3 lg:h-2/3 flex flex-col lg:flex-row items-center justify-evenly gap-4 lg:gap-0 py-2'>
                         {principlesData.map((principle) => (
                             <motion.div
@@ -128,22 +128,22 @@ const PrinciplesSection = () => {
                                     <CirclePlusIcon className="w-6 h-6 lg:w-7 lg:h-7" />
                                 </h1>
 
-                                {/* Description Overlay - Fixed positioning */}
+                                {/* Description Overlay */}
                                 <motion.div
                                     className={`
                                         font-geist-mono-regular 
-                                        lg:w-1/2 lg:h-4/5 
-                                        absolute lg:right-4 
+                                        w-1/2 lg:h-4/5 h:6/7
+                                        absolute right-4 
                                         bg-white/0 rounded-2xl 
                                         flex items-start justify-start 
-                                        p-3 lg:p-4 overflow-hidden 
+                                        p-4 overflow-hidden 
                                         text-text-col 
                                         transition-all duration-700 ease-in-out z-20
                                         ${clicked === principle.title
-                                        ? 'visible text-xs lg:text-sm backdrop-blur-xl w-full h-full lg:w-1/2 lg:h-4/5 right-0 lg:right-4'
-                                        : 'invisible lg:visible text-[0px] w-0 h-0 lg:w-1/2 lg:h-4/5'
+                                        ? 'visible text-sm backdrop-blur-xl'
+                                        : 'invisible text-[0px]'
                                     }
-                                    `}
+`}
                                 >
                                     {principle.fullDescription}
                                 </motion.div>

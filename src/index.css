@@ -3,6 +3,7 @@
 
 @theme {
   --color-accent: #4f8b05;
+  --color-accent2: #98b572;
   --color-background: #ffffff;
   --color-text-col: #373737;
   --font-geist-mono-bold: "Geist-Mono-Bold";
@@ -46,11 +47,8 @@
   color: #000000;
 }
 
-body {
-  scroll-behavior: smooth;
-}
-
 html, body {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -58,3 +56,34 @@ html, body {
   height: 100%;
 }
 
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent2, #4f8b05);
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a6b04;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent2, #4f8b05) #f1f1f1;
+}
+
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #333; /* Your text color */
+}

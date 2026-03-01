@@ -35,7 +35,7 @@ const CheckoutPage = () => {
     return (
         <div className='min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100'>
             <div className="container mx-auto px-4 py-6 lg:py-8">
-                {/* Return to services button - repositioned for mobile */}
+                {/* Return to services button */}
                 <Link
                     to="/service-customizer"
                     className="inline-flex items-center gap-2 text-neutral-600 hover:text-accent transition-all duration-300 mb-4 lg:mb-6 hover:scale-105"
@@ -44,15 +44,16 @@ const CheckoutPage = () => {
                     <span className="font-geist-mono">Back to services</span>
                 </Link>
 
-                {/* Main content grid - responsive layout */}
+                {/* Main content grid */}
                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
                     {/* Left section - Checkout form */}
                     <div className="w-full lg:w-2/3 space-y-6">
                         {/* Header with logo */}
                         <div className="bg-white rounded-2xl shadow-sm p-6 border border-neutral-200">
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                                    <img src="src/assets/logo2.png" alt="Logo" className="w-8 h-8 object-contain"/>
+                            <div className="flex items-center gap-1 mb-4">
+
+                                <div className="size-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                                    <img src="src/assets/logo2.png" alt="Logo" className="size-9 object-contain"/>
                                 </div>
                                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-geist-mono-bold text-accent">HECKOUT</h1>
                             </div>
@@ -82,7 +83,7 @@ const CheckoutPage = () => {
                                 <input type="hidden" name="item_name" value={globalBusinessType.name}/>
                                 <input type="hidden" name="item_description" value={globalBusinessType.description}/>
 
-                                {/* Name fields - responsive grid */}
+                                {/* Name fields */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label htmlFor="first_name" className="block text-sm font-geist-mono text-neutral-700">
@@ -93,7 +94,7 @@ const CheckoutPage = () => {
                                             name="name_first"
                                             value={firstName}
                                             onChange={(e) => setFirstName(e.target.value)}
-                                            className="w-full p-3 border-2 border-neutral-200 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                                            className="text-neutral-700 w-full p-3 border-2 border-neutral-200 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                                             type="text"
                                             placeholder="John"
                                             required
@@ -108,7 +109,7 @@ const CheckoutPage = () => {
                                             name="name_last"
                                             value={lastName}
                                             onChange={(e) => setLastName(e.target.value)}
-                                            className="w-full p-3 border-2 border-neutral-200 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                                            className="text-neutral-700 w-full p-3 border-2 border-neutral-200 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                                             type="text"
                                             placeholder="Doe"
                                             required
@@ -116,7 +117,7 @@ const CheckoutPage = () => {
                                     </div>
                                 </div>
 
-                                {/* Contact details - responsive grid */}
+                                {/* Contact details */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label htmlFor="phone" className="block text-sm font-geist-mono text-neutral-700">
@@ -130,7 +131,7 @@ const CheckoutPage = () => {
                                                 value={cellNumber}
                                                 type="tel"
                                                 onChange={(e) => setCellNumber(e.target.value)}
-                                                className="w-full p-3 pl-10 border-2 border-neutral-200 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                                                className="text-neutral-700 w-full p-3 pl-10 border-2 border-neutral-200 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                                                 placeholder="+27 123 456 789"
                                                 required
                                             />
@@ -146,14 +147,14 @@ const CheckoutPage = () => {
                                             value={email}
                                             type="email"
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full p-3 border-2 border-neutral-200 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                                            className="text-neutral-700 w-full p-3 border-2 border-neutral-200 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                                             placeholder="john@example.com"
                                             required
                                         />
                                     </div>
                                 </div>
 
-                                {/* Hidden email fields - fixed */}
+                                {/* Hidden email fields */}
                                 <input type="hidden" name="email" value={email}/>
                                 <input type="hidden" name="confirmation_address" value={email}/>
 
@@ -178,7 +179,7 @@ const CheckoutPage = () => {
                             </form>
                         </div>
 
-                        {/* Trust badges - responsive grid */}
+                        {/* Trust badges */}
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                             <div className="bg-white p-3 rounded-xl border border-neutral-200 flex items-center gap-2">
                                 <FaShieldAlt className="text-accent text-lg" />
