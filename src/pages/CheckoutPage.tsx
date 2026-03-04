@@ -162,7 +162,7 @@ const CheckoutPage = () => {
                                 <button
                                     type="submit"
                                     disabled={isProcessing}
-                                    className="w-full md:w-auto px-8 py-4 bg-accent hover:bg-accent/90 text-white font-geist-mono-bold rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                                    className="w-full md:w-auto px-8 py-4 border-2 border-accent/80 hover:bg-accent/90 text-neutral-600 font-geist-mono-bold rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                                 >
                                     {isProcessing ? (
                                         <>
