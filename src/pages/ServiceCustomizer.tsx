@@ -19,10 +19,11 @@ import { MdOutlineMiscellaneousServices } from "react-icons/md";
 import { IoRocketSharp } from "react-icons/io5";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import {
-    DollarSign, Plus, Minus, Globe, Smartphone,
+    DollarSign, Plus, Minus, Globe, Smartphone, CreditCard,
 } from "lucide-react";
 import type { IconType } from "react-icons";
 import useSelectedServiceStore from "../stores/selectedServiceStore.ts";
+import toast from "react-hot-toast";
 
 export interface BusinessType {
     id: string;
@@ -146,8 +147,9 @@ const ServiceCustomizer = () => {
     const [selectedGoals, setSelectedGoals] = useState<number[]>([]);
     const [pageCount, setPageCount] = useState(1);
     const [hasEcommerce] = useState(false);
+    const [ canClick, setCanClick ] = useState<boolean>(false);
 
-    const { setGlobalTotalPrice, setGlobalSelectedPages, setGlobalSelectedFeatures, setGlobalBusinessGoals, setGlobalBusinessType } = useSelectedServiceStore();
+    const { globalSelectedPages, globalSelectedFeatures, globalTotalPrice, setGlobalTotalPrice, setGlobalSelectedPages, setGlobalSelectedFeatures, setGlobalBusinessGoals, setGlobalBusinessType } = useSelectedServiceStore();
 
     // Store user selections in global states for access in multiple files
     const setCheckoutData = () => {
@@ -156,6 +158,11 @@ const ServiceCustomizer = () => {
         setGlobalSelectedFeatures(selectedFeatures);
         setGlobalBusinessGoals(selectedGoals);
         setGlobalBusinessType(businessType);
+        setCanClick(globalSelectedPages.length > 1 || globalSelectedFeatures.length > 0 || globalTotalPrice > 2000)
+
+        if (!canClick) {
+            toast.error("Select atleast one feature")
+        }
     }
 
     // Pricing calculation
@@ -541,10 +548,10 @@ const ServiceCustomizer = () => {
                                             <Link
                                                 onClick={() => setCheckoutData()}
                                                 to="/checkout"
-                                                className="w-full bg-accent text-white py-3 rounded-lg font-geist-mono-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2"
+                                                className={`w-full bg-accent text-white py-3 rounded-lg font-geist-mono-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 ${!canClick && "pointer-events-none bg-neutral-500"}`}
                                             >
-                                                Continue to Checkout
-                                                <FaCreditCard className="size-4" />
+                                                {canClick ? "Continue to Checkout" : ""}
+                                                {canClick ? <FaCreditCard className="size-4" /> : <CreditCard/>}
                                             </Link>
 
                                             <button className="w-full border border-neutral-300 text-neutral-700 py-2 rounded-lg font-geist-mono-regular hover:bg-neutral-50 transition-colors flex items-center justify-center gap-2">
