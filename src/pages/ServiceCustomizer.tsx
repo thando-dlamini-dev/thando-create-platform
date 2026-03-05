@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom"
 import { FaClipboardList } from "@react-icons/all-files/fa/FaClipboardList";
 import { BsMegaphoneFill } from "react-icons/bs";
-import { FaCreditCard, FaCheckCircle, FaUserCircle, FaClock, FaStore, FaHandHoldingHeart } from "react-icons/fa";
+import { FaCreditCard, FaCheckCircle, FaUserCircle, FaClock, FaStore,FaHandHoldingHeart } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { IoGrid } from "react-icons/io5";
 import { IoIosMail } from "react-icons/io";
@@ -18,6 +18,7 @@ import { GiSouthAfricaFlag } from "react-icons/gi";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
 import { IoRocketSharp } from "react-icons/io5";
 import { BsFillBuildingsFill } from "react-icons/bs";
+import { FcCancel } from "react-icons/fc";
 import {
     DollarSign, Plus, Minus, Globe, Smartphone, CreditCard,
 } from "lucide-react";
@@ -550,8 +551,8 @@ const ServiceCustomizer = () => {
                                                 to="/checkout"
                                                 className={`w-full bg-accent text-white py-3 rounded-lg font-geist-mono-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 ${!canClick && "pointer-events-none bg-neutral-500"}`}
                                             >
-                                                {canClick ? "Continue to Checkout" : ""}
-                                                {canClick ? <FaCreditCard className="size-4" /> : <CreditCard/>}
+                                                {canClick ? "Continue to Checkout" : "Missing selections"}
+                                                {canClick ? <FaCreditCard className="size-4" /> : <FcCancel className="size-5" />}
                                             </Link>
 
                                             <button className="w-full border border-neutral-300 text-neutral-700 py-2 rounded-lg font-geist-mono-regular hover:bg-neutral-50 transition-colors flex items-center justify-center gap-2">

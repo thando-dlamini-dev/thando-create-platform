@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
 import useAnnouncementStore from "../stores/AnouncementStore.ts";
+import { useState } from "react";
 
 const NavBar = () => {
     // type User = {
@@ -17,6 +18,7 @@ const NavBar = () => {
 
 
     const { hasExited } = useAnnouncementStore()
+    const [ activeLink, setActiveLink ] = useState<string>("")
 
     interface Link {
         delay: number,
@@ -58,10 +60,10 @@ const NavBar = () => {
                     <Link to='/' className='text-2xl font-mono font-bold w-10 h-10 flex items-center justify-center gap-1 text-accent'><img className='w-3/4' src='src/assets/logo2.png' alt=""/> <span>reate</span></Link>
                 </div>
                 {/*Links*/}
-                <div className='w-1/3 h-2/3 flex justify-evenly items-center '>
+                <div className='w-1/3 h-2/3  flex justify-evenly items-center '>
                     {links.map((link) => (
                         <motion.div initial={{opacity:0, y: -20}} animate={{opacity:1, y: 0}} transition={{duration:0.5 + link.delay, ease:"easeInOut"}} key={link.delay}>
-                            <Link  to={link.url} className='font-mono text-text-col text-sm font-light hover:text-accent transition-all duration-200' key={link.name} >{link.name}</Link>
+                            <Link onClick={() => setActiveLink(link.name)} to={link.url} className={`font-mono px-3 py-2 rounded-full bg-neutral-600 text-text-col text-sm font-light hover:text-accent transition-all duration-200 ${activeLink ? "" : ""}'`}key={link.name} >{link.name}</Link>
                         </motion.div>))}
                 </div>
                 <div className='w-1/5 h-2/3 flex justify-evenly items-center'>
