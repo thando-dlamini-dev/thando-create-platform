@@ -54,22 +54,24 @@ const NavBar = () => {
 
     return (
         <>
-            <motion.div initial={{opacity:0, y: -20}} animate={{opacity:1, y: 0}} transition={{duration:0.5, ease:"easeInOut"}} className={`fixed ${hasExited ? "top-0" : "top-8"} z-50 left-0 w-screen h-15 flex justify-evenly px-40 items-center gap-10 bg-background border-b-1 border-neutral-300`}>
+            <div className={`${hasExited ? "top-0" : "top-8"} fixed bg-white/0 z-50 w-screen min-h-15 flex py-2 px-5`}>
+
+            <motion.div initial={{opacity:0, y: -20}} animate={{opacity:1, y: 0}} transition={{duration:0.5, ease:"easeInOut"}} className={`w-screen px-5 rounded-full bg-neutral-300 h-15 flex justify-between items-center gap-10 bg-white/0 backdrop-blur-md border-1 border-neutral-200 shadow-sm`}>
                 {/*Logo*/}
                 <div className='w-1/7 h-2/3 flex justify-center gap-2 items-center'>
                     <Link to='/' className='text-2xl font-mono font-bold w-10 h-10 flex items-center justify-center gap-1 text-accent'><img className='w-3/4' src='src/assets/logo2.png' alt=""/> <span>reate</span></Link>
                 </div>
                 {/*Links*/}
-                <div className='w-1/3 h-2/3  flex justify-evenly items-center '>
+                <div className='w-1/3 h-2/3 flex justify-evenly items-center '>
                     {links.map((link) => (
                         <motion.div initial={{opacity:0, y: -20}} animate={{opacity:1, y: 0}} transition={{duration:0.5 + link.delay, ease:"easeInOut"}} key={link.delay}>
-                            <Link onClick={() => setActiveLink(link.name)} to={link.url} className={`font-mono px-3 py-2 rounded-full bg-neutral-600 text-text-col text-sm font-light hover:text-accent transition-all duration-200 ${activeLink ? "" : ""}'`}key={link.name} >{link.name}</Link>
+                            <Link onClick={() => setActiveLink(link.name)} to={link.url} className={`font-mono px-3 py-2 rounded-full text-sm font-light transition-all duration-200 transition-all ease-in-out duration-500 ${activeLink === link.name ? "bg-accent/80" : "text-neutral-600"}`} key={link.name} >{link.name}</Link>
                         </motion.div>))}
                 </div>
-                <div className='w-1/5 h-2/3 flex justify-evenly items-center'>
+                <div className='w-1/5 h-2/3 flex justify-end items-center'>
                     {/*Buttons*/}
                     <Link
-                        className='text-md text-neutral-900 bg-neutral-300 border-accent hover:text-black py-1 px-4 rounded-sm font-light hover:scale-105 transition-all duration-300 hover:bg-accent' to='/login'>
+                        className='text-md text-neutral-900 rounded-full bg-neutral-300 border-1 border-neutral-200 hover:text-white py-1 px-4 font-light hover:scale-105 transition-all duration-300 hover:bg-accent/80' to='/login'>
                         Sign In
                     </Link>
 
@@ -80,6 +82,7 @@ const NavBar = () => {
                     {/*}*/}
                 </div>
             </motion.div>
+            </div>
         </>
     )
 }

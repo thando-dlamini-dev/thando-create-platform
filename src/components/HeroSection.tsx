@@ -1,6 +1,5 @@
 import {Link} from "react-router-dom";
 import { motion } from "framer-motion";
-import {CheckCircle2} from "lucide-react";
 
 const HeroSection = () => {
     return(
@@ -14,7 +13,7 @@ const HeroSection = () => {
                                        className='flex mb-4 justify-start gap-3 font-bold text-4xl text-text-col'>Your
                                 Expert-Developed Website Strategically Planned By AI
                             </motion.h1>
-
+                            {/*Left section*/}
                             <div className=' w-1/2 min-h-30 flex items-center justify-start'>
                                 <motion.p initial={{opacity: 0, y: -15}} animate={{opacity: 1, y: 0}}
                                           transition={{duration: 0.9, ease: "easeInOut"}}
@@ -59,10 +58,14 @@ const HeroSection = () => {
                         </div>
                     </div>
                 </div>
+                {/*Right section*/}
                 <div className='w-1/2 min-h-screen flex flex-col items-start pl-20 justify-evenly '></div>
-                <motion.img initial={{opacity: 0, x: 100}} animate={{opacity: 1, x: 0}}
-                            transition={{duration: 1, ease: "easeInOut"}} className='absolute top-20 right-0 w-3/5'
-                            src='src/assets/UI10(CYCLES)-min.png'/>
+                <motion.img
+                    initial={{opacity: 0, x: 100}} animate={{opacity: 1, x: 0}}
+                    transition={{duration: 1, ease: "easeInOut"}}
+                    className='absolute top-15 right-0 w-3/5'
+                    src='src/assets/UI10(CYCLES)-min.png'
+                />
             </section>
         </>
     )
