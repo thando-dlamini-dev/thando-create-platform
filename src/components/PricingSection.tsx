@@ -23,7 +23,7 @@ const PricingSection = () => {
                     </div>
                     <div className="w-full h-full flex items-start justify-between p-5 gap-5">
                         <div
-                            className="w-1/3 min-h-100 bg-neutral-200 shadow-md border-4 border-neutral-300 rounded-2xl p-1 mt-20 flex-col items-start justify-start p-5">
+                            className="w-1/3 min-h-100 bg-neutral-100 shadow-md border-1 border-neutral-300 rounded-2xl p-1 mt-20 flex-col items-start justify-start p-5">
                             <div className="w-full text-black h-20 flex-col items-start justify-between">
                                 <h1 className="text-xl font-geist-mono-bold pb-2">Referral Program</h1>
                                 <p className="">Free website through referrals</p>
@@ -51,7 +51,7 @@ const PricingSection = () => {
                         </div>
 
                         <div
-                            className="w-1/3 min-h-100 bg-neutral-200 shadow-md border-4 border-green-600 rounded-2xl p-1 mt-20 flex-col items-start justify-start p-5 relative">
+                            className="w-1/3 min-h-100 bg-neutral-100 shadow-md border-1 border-green-600 rounded-2xl p-1 mt-20 flex-col items-start justify-start p-5 relative">
                             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-1 rounded-full text-sm">
                                 Most Popular
                             </div>
@@ -79,7 +79,7 @@ const PricingSection = () => {
                         </div>
 
                         <div
-                            className="w-1/3 min-h-100 bg-neutral-200 shadow-md border-4 border-neutral-300 rounded-2xl p-1 mt-20 flex-col items-start justify-start p-5">
+                            className="w-1/3 min-h-100 bg-neutral-100 shadow-md border-1 border-neutral-300 rounded-2xl p-1 mt-20 flex-col items-start justify-start p-5">
                             <div className="w-full text-black h-20 flex-col items-start justify-between">
                                 <h1 className="text-xl font-geist-mono-bold pb-2">Enterprise</h1>
                                 <p className="">Advanced features & payment integration</p>
