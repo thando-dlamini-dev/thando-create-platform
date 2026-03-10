@@ -20,22 +20,33 @@
   src: url('src/assets/fonts/GeistMono-Regular.ttf');
 }
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/*Root Styling reduces performance*/
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: var(--color-background);
+/*:root {*/
+/*  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;*/
+/*  line-height: 1.5;*/
+/*  font-weight: 400;*/
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*  color-scheme: light dark;*/
+/*  color: rgba(255, 255, 255, 0.87);*/
+/*  background-color: var(--color-background);*/
 
-  overflow: hidden;
-}
+/*  font-synthesis: none;*/
+/*  text-rendering: optimizeLegibility;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+
+/*  overflow: hidden;*/
+/*}*/
+
+html, body {
+   scroll-behavior: smooth;
+   margin: 0;
+   padding: 0;
+   overflow-x: hidden;
+   overflow-y: scroll;
+   height: 100%;
+ }
 
 ::selection {
   background-color: rgb(187, 244, 81);
@@ -47,14 +58,7 @@
   color: #000000;
 }
 
-html, body {
-  scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  height: 100%;
-}
+
 
 /* Scrollbar Styles */
 ::-webkit-scrollbar {

@@ -45,7 +45,7 @@ const Faq = () => {
         <>
             <section
                 className='w-screen pt-20 flex-col items-center justify-start min-h-screen lg:h-screen mb-20 lg:mb-40 flex mt-20 lg:mt-30 bg-background px-4 lg:px-0'>
-                    <div className="w-4/5 min-h-50 flex justify-between items-start">
+                    <div className="lg:w-4/5 w-screen min-h-50 flex md:flex-col flex-col lg:flex-row justify-between items-center lg:items-start">
                         <div className="w-1/2 min-h-50 flex-col items-start justify-start gap-10">
                             <div className="w-full min-h-10 mb-20">
                                 <motion.h1
@@ -58,10 +58,10 @@ const Faq = () => {
                                 </motion.h1>
                             </div>
                         </div>
-                        <div className="w-1/2 min-h-50 flex-col items-start justify-start">
+                        <div className="lg:w-1/2 w-4/5 min-h-50 text-xl flex-col items-start justify-start">
                             {faqs.map((faq) => (
-                                <div onClick={() => {selectedFaq.question === faq.question ? setSelectedFaq({question: "", revealedAns: ""}) : setSelectedFaq(faq)}} key={faq.question} className={`w-full cursor-pointer h-7 transition-all ease-in-out duration-300 ${selectedFaq.question === faq.question && "h-30"} overflow-hidden font-geist-mono-regular border-0 border-black mb-3 flex items-start justify-between text-neutral-600`}>
-                                    <div className="w-full h-20">
+                                <div onClick={() => {selectedFaq.question === faq.question ? setSelectedFaq({question: "", revealedAns: ""}) : setSelectedFaq(faq)}} key={faq.question} className={`w-full cursor-pointer transition-all ease-in-out duration-300 ${selectedFaq.question === faq.question ? "h-fit transition-all ease-in-out duration-300" : "h-7"} overflow-hidden font-geist-mono-regular border-0 border-black mb-3 flex items-start justify-between text-neutral-600 border-b-1 border-neutral-600`}>
+                                    <div className="w-full min-h-20">
                                         <span className={`font-geist-mono-bold pb-5 ${selectedFaq.question === faq.question && "text-accent"} transition-all duration-300 ease-in-out`}>{faq.question}</span>
                                         <p>{faq.revealedAns}</p>
                                     </div>
