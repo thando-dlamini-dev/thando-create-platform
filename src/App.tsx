@@ -18,8 +18,7 @@ const App = () =>  {
     return (
         <>
             {location.pathname !== '/checkout' && <NavBar />}
-            {location.pathname !== '/checkout' && <Announcement/>}
-            <div>
+            {/*{location.pathname !== '/checkout' && <Announcement/>}*/}
                 <AnimatePresence mode='wait'>
                     <Routes location={location} key={location.pathname}>
                         <Route path='/' element={<LandingPage/>}/>
@@ -31,7 +30,6 @@ const App = () =>  {
                     {location.pathname !== '/checkout' && <Footer />}
                 </AnimatePresence>
             <Toaster/>
-            </div>
         </>
     )
 }

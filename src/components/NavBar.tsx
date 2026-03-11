@@ -54,7 +54,7 @@ const NavBar = () => {
 
     return (
         <>
-            <div className={`${hasExited ? "top-0" : "top-8"} fixed bg-white/0 z-50 w-screen min-h-15 flex py-2 px-5`}>
+            <div className={`top-0 fixed bg-white/0 z-50 w-screen min-h-15 flex py-2 px-5`}>
 
             <motion.div initial={{opacity:0, y: -20}} animate={{opacity:1, y: 0}} transition={{duration:0.5, ease:"easeInOut"}} className={`w-screen px-5 rounded-full bg-neutral-300 h-15 flex justify-between items-center gap-10 bg-white/0 backdrop-blur-md border-1 border-neutral-200 shadow-sm`}>
                 {/*Logo*/}

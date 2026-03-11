@@ -6,7 +6,7 @@ const HeroSection = () => {
         <>
             <section className='scroll-smooth relative w-screen min-h-screen flex justify-between items-center bg-background'>
                 <div className='z-10 font-geist-mono-bold w-1/2 h-screen flex flex-col items-end pl-20 justify-start pt-30'>
-                    <div className='border-neutral-300 border-0 absolute left-20 w-1/2 min-h-50 py-5 top-85 rounded-3xl p-2 pl-20'>
+                    <div className='border-neutral-300 border-0 left-20 w-4/5 lg:w-full min-h-50 py-5 top-85 rounded-3xl p-2 pl-20 bg-white/0 border-1 border-white shadow-md backdrop-blur-xs'>
                         <div className='w-full h-full rounded-2xl flex flex-col justify-start gap-2 items-start'>
                             <motion.h1 initial={{opacity: 0, y: -10}} animate={{opacity: 1, y: 0}}
                                        transition={{duration: 0.3, ease: "easeInOut"}}
@@ -23,24 +23,6 @@ const HeroSection = () => {
                                 </motion.p>
 
                             </div>
-                            {/*<div className="w-1/2 h-20 flex flex-col items-start justify-between">*/}
-                            {/*    <div className="w-full h-10 flex justify-between items-center">*/}
-                            {/*        <span*/}
-                            {/*            className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2*/}
-                            {/*            className="size-4 text-green-600"/> Responsive Design</span>*/}
-                            {/*        <span*/}
-                            {/*            className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2*/}
-                            {/*            className="size-4 text-green-600"/> Responsive Design</span>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="w-full h-10 flex justify-between items-center">*/}
-                            {/*        <span*/}
-                            {/*            className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2*/}
-                            {/*            className="size-4 text-green-600"/> Responsive Design</span>*/}
-                            {/*        <span*/}
-                            {/*            className="text-black font-geist-mono-regular flex items-center gap-2"><CheckCircle2*/}
-                            {/*            className="size-4 text-green-600"/> Responsive Design</span>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
                             <motion.div initial={{opacity: 0, y: -20}} animate={{opacity: 1, y: 0}}
                                         transition={{duration: 1, ease: "easeInOut"}}
                                         className='w-2/3 h-10 flex justify-start gap-10 items-center'>
@@ -59,13 +41,14 @@ const HeroSection = () => {
                     </div>
                 </div>
                 {/*Right section*/}
-                <div className='w-1/2 min-h-screen flex flex-col items-start pl-20 justify-evenly '></div>
+                <div className='w-1/2 hidden lg:flex min-h-screen flex-col items-start justify-evenly'>
                 <motion.img
                     initial={{opacity: 0, x: 100}} animate={{opacity: 1, x: 0}}
                     transition={{duration: 1, ease: "easeInOut"}}
-                    className='absolute top-15 right-0 w-3/5'
+                    className='w-full'
                     src='src/assets/UI10(CYCLES)-min.png'
                 />
+                </div>
             </section>
         </>
     )
