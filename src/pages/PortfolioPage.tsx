@@ -81,12 +81,20 @@ const PortfolioPage = () => {
 
     return(
         <>
-            <div className="w-screen h-screen mt-30">
+            <div className="w-screen min-h-screen mt-30">
                 <div className="w-full h-20 flex flex-col items-center justify-evenly">
                     <h1 className="text-accent font-geist-mono-bold text-4xl">
                         Our Work
                     </h1>
                     <p className="text-neutral-700">Purpose-built designs for businesses, schools, e-commerce & organisations full setup & 12 months support included.</p>
+                </div>
+                <div className="w-full min-h-screen flex flex-col items-center justify-evenly ">
+                    {Portfolio.map((tech, index) => (
+                        <div key={index} className="w-full lg:w-3/5 min-h-2 bg-black flex flex-col-reverse lg:flex-row justify-between items-center">
+                            <div className="w-2/3 h-50"></div>
+                            <div className="w-1/3 h-50 bg-neutral-300"></div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </>
