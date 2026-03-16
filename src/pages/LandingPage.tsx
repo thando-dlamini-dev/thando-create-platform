@@ -11,7 +11,7 @@ import TechStackSection from "../components/TechStack.tsx";
 const LandingPage = () => {
     return (
         <>
-            <section className='overflow-hidden scroll-smooth'>
+            <section className='overflow-hidden'>
                 <div className='w-screen min-h-screen flex-col items-center justify-center'>
                     <HeroSection/>
                     <PrinciplesSection/>

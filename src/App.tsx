@@ -1,7 +1,6 @@
 import {useLocation} from "react-router-dom";
 import LandingPage from "./pages/LandingPage.tsx";
 import NavBar from "./components/NavBar.tsx";
-import Announcement from "./components/Anouncement.tsx";
 import Footer from "./components/Footer.tsx";
 import {AnimatePresence} from "framer-motion";
 import {Route, Routes} from "react-router-dom";

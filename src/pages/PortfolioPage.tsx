@@ -14,6 +14,7 @@ const PortfolioPage = () => {
         name: string;
         image: string;
         description: string;
+        live_demo: string;
         features: string[]
         techStack: Tech[]
     }
@@ -24,6 +25,7 @@ const PortfolioPage = () => {
             name: "Choco-Protein products",
             image: "/Choco.webp",
             description: "Ecommerce website that sells chocolate flavoured protein products",
+            live_demo: "/choco-protein",
             features: [
                 "Payment Integration",
                 "Authentication"
@@ -42,6 +44,7 @@ const PortfolioPage = () => {
             name: "Jewelery",
             image: "/Choco.webp",
             description: "Ecommerce website that sells chocolate flavoured protein products",
+            live_demo: "",
             features: [
                 "Payment Integration",
                 "Authentication"
@@ -60,6 +63,7 @@ const PortfolioPage = () => {
             name: "Choco-Protein products",
             image: "/Choco.webp",
             description: "Ecommerce website that sells chocolate flavoured protein products",
+            live_demo: "",
             features: [
                 "Payment Integration",
                 "Authentication"
@@ -77,7 +81,14 @@ const PortfolioPage = () => {
 
     return(
         <>
-
+            <div className="w-screen h-screen mt-30">
+                <div className="w-full h-20 flex flex-col items-center justify-evenly">
+                    <h1 className="text-accent font-geist-mono-bold text-4xl">
+                        Our Work
+                    </h1>
+                    <p className="text-neutral-700">Purpose-built designs for businesses, schools, e-commerce & organisations full setup & 12 months support included.</p>
+                </div>
+            </div>
         </>
     )
 }

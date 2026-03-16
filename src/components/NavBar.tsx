@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
-import useAnnouncementStore from "../stores/AnouncementStore.ts";
 import { useState } from "react";
 
 const NavBar = () => {
@@ -17,7 +16,6 @@ const NavBar = () => {
     // }
 
 
-    const { hasExited } = useAnnouncementStore()
     const [ activeLink, setActiveLink ] = useState<string>("")
 
     interface Link {
