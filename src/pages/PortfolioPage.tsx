@@ -24,7 +24,7 @@ const PortfolioPage = () => {
         {
             id: 0,
             name: "Choco-Protein products",
-            image: "/Choco.webp",
+            image: "src/assets/protein.webp",
             description: "Ecommerce website that sells chocolate flavoured protein products",
             live_demo: "/choco-protein",
             features: [
@@ -42,8 +42,8 @@ const PortfolioPage = () => {
         },
         {
             id: 0,
-            name: "Jewelery",
-            image: "/Choco.webp",
+            name: "Jewellery",
+            image: "src/assets/jewellery.jpg",
             description: "Ecommerce website that sells chocolate flavoured protein products",
             live_demo: "",
             features: [
@@ -62,9 +62,9 @@ const PortfolioPage = () => {
         {
             id: 0,
             name: "Choco-Protein products",
-            image: "/Choco.webp",
+            image: "src/assets/choco.avif",
             description: "Ecommerce website that sells chocolate flavoured protein products",
-            live_demo: "",
+            live_demo: "src/assets/protein.jpg",
             features: [
                 "Payment Integration",
                 "Authentication"
@@ -95,14 +95,17 @@ const PortfolioPage = () => {
                     {Portfolio.map((tech, index) => (
                         <div key={index} className="w-full lg:w-3/5 min-h-2 flex flex-col-reverse lg:flex-row justify-between items-center rounded-4xl p-5 shadow-md border-1 border-neutral-200 hover:scale-105 transition-all ease-in-out duration-300 cursor-pointer">
                             {/*Project Text*/}
-                            <div className="w-2/3 h-80 flex flex-col items-start justify-between">
+                            <div className="w-1/2 h-80 flex flex-col items-start justify-between">
                                 <h2 className="font-geist-mono-bold text-2xl text-accent">
                                     {tech.name}
                                 </h2>
-                                <button onClick={() => setSelectedProject(tech.name)}>Show more</button>
+                                <div className={`w-full transition-all `}></div>
+                                <button onClick={() => setSelectedProject(tech.name)} className="px-4 py-3 bg-accent/80 transition-all duration-300 ease-in-out hover:bg-accent rounded-full font-geist-mono-regular shadow-md">More Info</button>
                             {/*Project Image*/}
                             </div>
-                            <div className="w-1/3 h-80 bg-neutral-300 rounded-xl"></div>
+                            <div className="w-1/2 h-80 flex justify-center items-center rounded-xl">
+                                <img src={tech.image} w-full alt=""/>
+                            </div>
                         </div>
                     ))}
                 </div>

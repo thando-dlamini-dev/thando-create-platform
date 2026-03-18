@@ -47,7 +47,7 @@ const PrinciplesSection = () => {
 
     return (
         <>
-            <section className='w-screen min-h-screen lg:h-screen mb-20 lg:mb-40 flex justify-center items-start mt-20 lg:mt-30 bg-background px-4 lg:px-0'>
+            <section className='w-screen min-h-screen lg:h-screen flex justify-center items-start mt-20 lg:mt-30 bg-background px-4 lg:px-0'>
                 <div className='w-full lg:min-w-3/5 lg:h-150 flex flex-col justify-between items-center'>
                     {/* Header Section */}
                     <div className='w-full lg:min-w-10 lg:h-1/4 flex flex-col items-start lg:items-center justify-start gap-4 lg:gap-3 mb-8 lg:mb-0'>
