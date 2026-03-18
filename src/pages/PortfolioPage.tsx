@@ -61,7 +61,7 @@ const PortfolioPage = () => {
         },
         {
             id: 0,
-            name: "Choco-Protein products",
+            name: "World-Day Chocolate",
             image: "src/assets/choco.avif",
             description: "Ecommerce website that sells chocolate flavoured protein products",
             live_demo: "src/assets/protein.jpg",
@@ -99,12 +99,18 @@ const PortfolioPage = () => {
                                 <h2 className="font-geist-mono-bold text-2xl text-accent">
                                     {tech.name}
                                 </h2>
+                                <p className={`text-neutral-700 transition-all duration-300 ease-in-out ${tech.name === selectedProject ? "text-md" : "text-[0px]"}`}>
+                                    {tech.description}
+                                </p>
+                                <p className={`text-neutral-700 transition-all duration-300 ease-in-out ${tech.name === selectedProject ? "text-md" : "text-[0px]"}`}>
+                                    {tech.features.map((feature, index) => (<span className={`px-3 py-2 mr-3 rounded-full ${tech.name === selectedProject && "border-1"} border-neutral-600 shadow-md text-neutral-700`} key={index}>{feature}</span>))}
+                                </p>
                                 <div className={`w-full transition-all `}></div>
                                 <button onClick={() => setSelectedProject(tech.name)} className="px-4 py-3 bg-accent/80 transition-all duration-300 ease-in-out hover:bg-accent rounded-full font-geist-mono-regular shadow-md">More Info</button>
                             {/*Project Image*/}
                             </div>
                             <div className="w-1/2 h-80 flex justify-center items-center rounded-xl">
-                                <img src={tech.image} w-full alt=""/>
+                                <img src={tech.image} className="w-full rounded-xl" alt=""/>
                             </div>
                         </div>
                     ))}
