@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
     return(
         <>
-            <section className='w-screen min-h-screen flex justify-between items-center bg-background'>
+            <section className='w-screen h-fit lg:min-h-screen flex justify-between items-center bg-background'>
                 {/*Left section*/}
-                <div className='w-full lg:w-1/2 h-screen flex justify-center items-start pt-25 lg:items-center lg:pl-20 lg:justify-start lg:pt-30 font-geist-mono-bold'>
-                    <div className='w-full lg:w-full flex items-center justify-center min-h-50 lg:py-5 border-0 rounded-3xl p-2 bg-white/0 border-1 border-white shadow-md backdrop-blur-xs'>
+                <div className='w-full lg:w-1/2 h-fit lg:h-screen flex justify-center items-start pt-25 lg:items-center lg:pl-20 lg:justify-start lg:pt-30 font-geist-mono-bold'>
+                    <div className='w-full lg:w-full flex items-center justify-center min-h-50 lg:py-5 border-0 rounded-3xl p-2 bg-white/0 border-1 border-white lg:shadow-md backdrop-blur-xs'>
                         <div className='w-full h-full rounded-2xl flex flex-col items-center lg:justify-start gap-2 lg:items-start'>
                             <motion.h1 initial={{opacity: 0, y: -10}} animate={{opacity: 1, y: 0}}
                                        transition={{duration: 0.3, ease: "easeInOut"}}
@@ -27,9 +27,9 @@ const HeroSection = () => {
                             <motion.div
                             initial={{opacity: 0, y: -20}} animate={{opacity: 1, y: 0}}
                             transition={{duration: 1, ease: "easeInOut"}}
-                            className='w-full h-fit lg:w-2/3 lg:h-10 flex flex-col lg:flex-row justify-evenly lg:justify-start lg:gap-10 items-center'>
+                            className='w-full h-fit lg:w-2/3 lg:h-10 flex flex-col gap-3 lg:flex-row justify-evenly lg:justify-start lg:gap-10 items-center'>
                                 <Link
-                                    className='text-text-col text-neutral-900 bg-neutral-300 border-accent hover:text-black py-2 px-10 rounded-full font-light hover:scale-105 transition-all duration-300 hover:bg-accent'
+                                    className='text-white bg-accent/90 hover:bg-accent border-accent hover:text-black py-2 px-14 rounded-full font-light hover:scale-105 transition-all duration-300 hover:bg-accent'
                                     to='/login'>
                                     Login
                                 </Link>
